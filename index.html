@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Divine Wisdom Computers | Best in What We Do</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script>
+      (function () {
+        emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+      })();
+    </script>
+    <style>
+      :root {
+          --indigo: #4b0082;
+          --indigo-light: #6a3093;
+          --indigo-lighter: #8a57b5;
+          --white: #ffffff;
+          --light-gray: #f5f5f7;
+          --medium-gray: #e0e0e0;
+          --dark-gray: #333333;
+          --accent: #ff6b6b;
+          --success: #4caf50;
+          --transition: all 0.3s ease;
+          --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+          --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+
+      body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          line-height: 1.6;
+          color: var(--dark-gray);
+          background-color: var(--light-gray);
+          overflow-x: hidden;
+      }
+
+      .container {
+          width: 90%;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 2rem 0;
+      }
+
+      section {
+          padding: 5rem 0;
+      }
+
+      .btn {
+          display: inline-block;
+          background: var(--indigo);
+          color: var(--white);
+          padding: 12px 28px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: var(--transition);
+          border: 2px solid var(--indigo);
+          cursor: pointer;
+      }
+
+      .btn:hover {
+          background: transparent;
+          color: var(--indigo);
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-hover);
+      }
+
+      .btn-outline {
+          background: transparent;
+          color: var(--indigo);
+      }
+
+      .btn-outline:hover {
+          background: var(--indigo);
+          color: var(--white);
+      }
+
+      .section-title {
+          text-align: center;
+          margin-bottom: 3rem;
+          position: relative;
+      }
+
+      .section-title h2 {
+          font-size: 2.5rem;
+          color: var(--indigo);
+          margin-bottom: 1rem;
+      }
+
+      .section-title p {
+          color: var(--dark-gray);
+          font-size: 1.1rem;
+          max-width: 700px;
+          margin: 0 auto;
+      }
+
+      .section-title::after {
+          content: '';
+          position: absolute;
+          bottom: -15px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 4px;
+          background: var(--indigo-light);
+          border-radius: 2px;
+      }
+
+      /* Header Styles */
+      header {
+          background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+          color: var(--white);
+          padding: 1rem 0;
+          position: fixed;
+          width: 100%;
+          top: 0;
+          z-index: 1000;
+          box-shadow: var(--shadow);
+      }
+
+      .header-container {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+
+      .logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+      }
+
+      .logo h1 {
+          font-size: 1.8rem;
+          font-weight: 700;
+      }
+
+      .logo-icon {
+          font-size: 2rem;
+          color: var(--white);
+      }
+
+      nav ul {
+          display: flex;
+          list-style: none;
+          gap: 2rem;
+      }
+
+      nav a {
+          color: var(--white);
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          transition: var(--transition);
+          padding: 8px 15px;
+          border-radius: 30px;
+      }
+
+      nav a:hover,
+      nav a.active {
+          background: rgba(255, 255, 255, 0.15);
+      }
+
+      .mobile-toggle {
+          display: none;
+          font-size: 1.5rem;
+          color: var(--white);
+          background: none;
+          border: none;
+          cursor: pointer;
+      }
+
+      /* Hero Section */
+      .hero {
+          min-height: 100vh;
+          display: flex;
+          align-items: center;
+          background: linear-gradient(rgba(75, 0, 130, 0.85), rgba(106, 48, 147, 0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3') no-repeat center center/cover;
+          color: var(--white);
+          text-align: center;
+          padding-top: 80px;
+      }
+
+      .hero-content {
+          max-width: 800px;
+          margin: 0 auto;
+      }
+
+      .hero h1 {
+          font-size: 3.5rem;
+          margin-bottom: 1rem;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero p {
+          font-size: 1.4rem;
+          margin-bottom: 2rem;
+          opacity: 0.9;
+      }
+
+      .hero-btns {
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          margin-top: 2rem;
+      }
+
+      .hero .btn {
+          font-size: 1.1rem;
+          padding: 15px 35px;
+      }
+
+      /* About Section */
+      .about {
+          background: var(--white);
+      }
+
+      .about-content {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+          align-items: center;
+      }
+
+      .about-text h3 {
+          font-size: 2rem;
+          color: var(--indigo);
+          margin-bottom: 1.5rem;
+      }
+
+      .about-text p {
+          margin-bottom: 1.5rem;
+          font-size: 1.1rem;
+      }
+
+      .motto {
+          font-style: italic;
+          font-weight: 600;
+          font-size: 1.3rem;
+          color: var(--indigo-light);
+          border-left: 4px solid var(--indigo-light);
+          padding-left: 1.5rem;
+          margin: 2rem 0;
+      }
+
+      .about-img {
+          border-radius: 15px;
+          overflow: hidden;
+          box-shadow: var(--shadow);
+          height: 400px;
+          background: linear-gradient(45deg, var(--indigo-light), var(--indigo-lighter));
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--white);
+          font-size: 5rem;
+      }
+
+      /* Services Section */
+      .services {
+          background: var(--light-gray);
+      }
+
+      .services-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+      }
+
+      .service-card {
+          background: var(--white);
+          border-radius: 15px;
+          padding: 2.5rem;
+          text-align: center;
+          transition: var(--transition);
+          box-shadow: var(--shadow);
+          border-bottom: 4px solid var(--indigo);
+      }
+
+      .service-card:hover {
+          transform: translateY(-10px);
+          box-shadow: var(--shadow-hover);
+      }
+
+      .service-icon {
+          font-size: 3.5rem;
+          color: var(--indigo);
+          margin-bottom: 1.5rem;
+      }
+
+      .service-card h3 {
+          font-size: 1.5rem;
+          margin-bottom: 1rem;
+          color: var(--indigo);
+      }
+
+      .service-card ul {
+          list-style: none;
+          text-align: left;
+          margin-top: 1.5rem;
+      }
+
+      .service-card ul li {
+          padding: 8px 0;
+          border-bottom: 1px dashed var(--medium-gray);
+      }
+
+      .service-card ul li:last-child {
+          border-bottom: none;
+      }
+
+      .service-card ul li::before {
+          content: "✓";
+          color: var(--success);
+          font-weight: bold;
+          margin-right: 10px;
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+          background: var(--white);
+      }
+
+      .testimonials-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          gap: 2.5rem;
+      }
+
+      .testimonial-card {
+          background: var(--light-gray);
+          border-radius: 15px;
+          padding: 2rem;
+          position: relative;
+          box-shadow: var(--shadow);
+          transition: var(--transition);
+      }
+
+      .testimonial-card:hover {
+          transform: translateY(-5px);
+          box-shadow: var(--shadow-hover);
+      }
+
+      .testimonial-card::before {
+          content: """;
+          position: absolute;
+          top: -25px;
+          left: 20px;
+          font-size: 6rem;
+          color: var(--indigo-light);
+          opacity: 0.2;
+          font-family: Georgia, serif;
+      }
+
+      .testimonial-text {
+          font-style: italic;
+          margin-bottom: 1.5rem;
+          position: relative;
+          z-index: 1;
+      }
+
+      .testimonial-author {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+      }
+
+      .author-img {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: var(--indigo-light);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--white);
+          font-weight: bold;
+          font-size: 1.5rem;
+      }
+
+      .author-info h4 {
+          color: var(--indigo);
+          margin-bottom: 5px;
+      }
+
+      /* Contact Section */
+      .contact {
+          background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
+          color: var(--white);
+      }
+
+      .contact-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 3rem;
+      }
+
+      .contact-info h3 {
+          font-size: 2rem;
+          margin-bottom: 1.5rem;
+      }
+
+      .contact-details {
+          margin: 2rem 0;
+      }
+
+      .contact-item {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 1.5rem;
+      }
+
+      .contact-icon {
+          width: 50px;
+          height: 50px;
+          background: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 1.3rem;
+      }
+
+      .contact-text h4 {
+          margin-bottom: 5px;
+      }
+
+      .contact-text p {
+          transition: var(--transition);
+      }
+
+      .contact-text a {
+          color: var(--white);
+          text-decoration: none;
+          transition: var(--transition);
+      }
+
+      .contact-text a:hover {
+          color: var(--accent);
+          text-decoration: underline;
+      }
+
+      .contact-form {
+          background: var(--white);
+          padding: 2.5rem;
+          border-radius: 15px;
+          box-shadow: var(--shadow-hover);
+      }
+
+      .contact-form h3 {
+          color: var(--indigo);
+          margin-bottom: 1.5rem;
+          text-align: center;
+      }
+
+      .form-group {
+          margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+          display: block;
+          margin-bottom: 8px;
+          color: var(--dark-gray);
+          font-weight: 600;
+      }
+
+      .form-control {
+          width: 100%;
+          padding: 12px 15px;
+          border: 1px solid var(--medium-gray);
+          border-radius: 8px;
+          font-size: 1rem;
+          transition: var(--transition);
+      }
+
+      .form-control:focus {
+          border-color: var(--indigo);
+          outline: none;
+          box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.1);
+      }
+
+      textarea.form-control {
+          min-height: 150px;
+          resize: vertical;
+      }
+
+      .submit-btn {
+          width: 100%;
+          padding: 15px;
+          background: var(--indigo);
+          color: var(--white);
+          border: none;
+          border-radius: 8px;
+          font-size: 1.1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: var(--transition);
+      }
+
+      .submit-btn:hover {
+          background: var(--indigo-light);
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-hover);
+      }
+
+      /* Notification styles */
+      .notification {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          padding: 15px 25px;
+          border-radius: 8px;
+          background: var(--success);
+          color: white;
+          font-weight: 600;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+          z-index: 2000;
+          transform: translateX(120%);
+          transition: transform 0.4s ease;
+      }
+
+      .notification.show {
+          transform: translateX(0);
+      }
+
+      .notification.error {
+          background: var(--accent);
+      }
+
+      /* Footer */
+      footer {
+          background: var(--dark-gray);
+          color: var(--white);
+          padding: 3rem 0 1.5rem;
+      }
+
+      .footer-content {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 2rem;
+          margin-bottom: 2rem;
+      }
+
+      .footer-column h3 {
+          color: var(--white);
+          margin-bottom: 1.5rem;
+          font-size: 1.5rem;
+      }
+
+      .footer-links {
+          list-style: none;
+      }
+
+      .footer-links li {
+          margin-bottom: 10px;
+      }
+
+      .footer-links a {
+          color: var(--medium-gray);
+          text-decoration: none;
+          transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+          color: var(--white);
+          padding-left: 5px;
+      }
+
+      .social-links {
+          display: flex;
+          gap: 1rem;
+          margin-top: 1.5rem;
+      }
+
+      .social-link {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: rgba(255, 255, 255, 0.1);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--white);
+          transition: var(--transition);
+          text-decoration: none;
+      }
+
+      .social-link:hover {
+          background: var(--indigo);
+          transform: translateY(-3px);
+      }
+
+      .copyright {
+          text-align: center;
+          padding-top: 2rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.1);
+          color: var(--medium-gray);
+          font-size: 0.9rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 992px) {
+          .hero h1 {
+              font-size: 3rem;
+          }
+
+          .about-content,
+          .contact-container {
+              grid-template-columns: 1fr;
+              gap: 2rem;
+          }
+
+          .about-img {
+              height: 300px;
+          }
+      }
+
+      @media (max-width: 768px) {
+          nav ul {
+              position: fixed;
+              top: 70px;
+              left: 0;
+              background: var(--indigo);
+              width: 100%;
+              flex-direction: column;
+              align-items: center;
+              padding: 2rem 0;
+              gap: 1rem;
+              transform: translateY(-150%);
+              transition: var(--transition);
+              box-shadow: var(--shadow);
+          }
+
+          nav ul.active {
+              transform: translateY(0);
+          }
+
+          .mobile-toggle {
+              display: block;
+          }
+
+          .hero h1 {
+              font-size: 2.5rem;
+          }
+
+          .hero p {
+              font-size: 1.2rem;
+          }
+      }
+
+      @media (max-width: 576px) {
+          .hero h1 {
+              font-size: 2rem;
+          }
+
+          .section-title h2 {
+              font-size: 2rem;
+          }
+
+          .hero-btns {
+              flex-direction: column;
+              align-items: center;
+          }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="container header-container">
+        <div class="logo">
+          <i class="fas fa-laptop-code logo-icon"></i>
+          <h1>Divine Wisdom Computers</h1>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+          <ul id="navMenu">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+      Thank you! Your request has been submitted.
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Welcome to Divine Wisdom Computers</h1>
+          <p>
+            Empowering your digital life with expert services in graphics,
+            printing, typing, and more.
+          </p>
+          <div class="hero-btns">
+            <a href="#services" class="btn">Our Services</a>
+            <a href="#contact" class="btn btn-outline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About Us</h2>
+          <p>
+            Your trusted partner for all things digital and document-related
+          </p>
+        </div>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Who We Are</h3>
+            <p>
+              Divine Wisdom Computers is your trusted partner for all things
+              digital and document-related. We provide top-notch services
+              tailored to students, businesses, and individuals who want the
+              best in computer services, printing, and IT support.
+            </p>
+            <p>
+              With years of experience and a commitment to excellence, we've
+              helped thousands of clients achieve their goals through our
+              professional services and expert guidance.
+            </p>
+            <div class="motto">"Best in What We Do"</div>
+            <p>
+              Our mission is to provide affordable, high-quality computing
+              services to everyone in our community, helping bridge the digital
+              divide and empowering our clients with technology solutions.
+            </p>
+          </div>
+          <div class="about-img">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Services</h2>
+          <p>We offer a wide range of professional and affordable services</p>
+        </div>
+        <div class="services-grid">
+          <!-- Service 1 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-paint-brush"></i>
+            </div>
+            <h3>Graphics Design</h3>
+            <ul>
+              <li>Logos and branding</li>
+              <li>Flyers and posters</li>
+              <li>Banners and signage</li>
+              <li>Business cards</li>
+              <li>Brochures and booklets</li>
+            </ul>
+          </div>
+
+          <!-- Service 2 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-keyboard"></i>
+            </div>
+            <h3>Typing Services</h3>
+            <ul>
+              <li>Projects and assignments</li>
+              <li>Documents and letters</li>
+              <li>Theses and dissertations</li>
+              <li>Resumes and CVs</li>
+              <li>Manuscripts</li>
+            </ul>
+          </div>
+
+          <!-- Service 3 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-print"></i>
+            </div>
+            <h3>Printing Services</h3>
+            <ul>
+              <li>Black & white printing</li>
+              <li>Color printing</li>
+              <li>Photocopying</li>
+              <li>Project binding</li>
+              <li>Lamination</li>
+              <li>Large format printing</li>
+            </ul>
+          </div>
+
+          <!-- Service 4 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Internet Services</h3>
+            <ul>
+              <li>Internet browsing</li>
+              <li>Online assignments</li>
+              <li>Research assistance</li>
+              <li>Email setup</li>
+              <li>Online applications</li>
+            </ul>
+          </div>
+
+          <!-- Service 5 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+            <h3>Seminar Support</h3>
+            <ul>
+              <li>Design and layout</li>
+              <li>Typing and editing</li>
+              <li>Printing services</li>
+              <li>Binding and packaging</li>
+              <li>Presentation support</li>
+            </ul>
+          </div>
+
+          <!-- Service 6 -->
+          <div class="service-card">
+            <div class="service-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Training Services</h3>
+            <ul>
+              <li>Computer packages</li>
+              <li>Graphic design</li>
+              <li>Web development</li>
+              <li>IT fundamentals</li>
+              <li>Software training</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>What Our Clients Say</h2>
+          <p>Hear from our satisfied customers</p>
+        </div>
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Divine Wisdom Computers saved me during project rush hour! Their
+              typing and binding service was incredibly fast and professional. I
+              got my project delivered just in time for submission.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-img">JS</div>
+              <div class="author-info">
+                <h4>John Smith</h4>
+                <p>University Student</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Best place in town for printing and design. I've been using their
+              services for my business for over two years, and they never
+              disappoint. Their attention to detail is exceptional.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-img">MJ</div>
+              <div class="author-info">
+                <h4>Mary Johnson</h4>
+                <p>Small Business Owner</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              The graphic design team created an amazing logo for my startup.
+              They understood my vision perfectly and delivered beyond my
+              expectations. Highly recommended!
+            </p>
+            <div class="testimonial-author">
+              <div class="author-img">DA</div>
+              <div class="author-info">
+                <h4>David Anderson</h4>
+                <p>Entrepreneur</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 4 -->
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              Their training services transformed my career. After completing
+              their web development course, I landed a job as a junior
+              developer. The instructors are knowledgeable and supportive.
+            </p>
+            <div class="testimonial-author">
+              <div class="author-img">ST</div>
+              <div class="author-info">
+                <h4>Sarah Thompson</h4>
+                <p>Web Developer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="section-title">
+          <h2>Contact Us</h2>
+          <p>Get in touch with us today</p>
+        </div>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>We'd love to hear from you</h3>
+            <p>
+              Whether you have a question about our services, need a quote, or
+              want to discuss a project, our team is ready to assist you.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Phone & WhatsApp</h4>
+                  <p><a href="tel:+2349139285285">09139285285</a></p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Phone Only</h4>
+                  <p><a href="tel:+2348032632324">08032632324</a></p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Email</h4>
+                  <p>
+                    <a href="mailto:delightrep@gmail.com"
+                      >delightrep@gmail.com</a
+                    >
+                  </p>
+                </div>
+              </div>
+
+              <div class="contact-item">
+                <div class="contact-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-text">
+                  <h4>Location</h4>
+                  <p>Ngwa Road, Aba Abia State</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a
+                href="https://facebook.com/divinewisdomcomputers"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://twitter.com/divinewisdomcomp"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://instagram.com/divinewisdomcomputers"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://wa.me/2349139285285"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h3>Request a Service</h3>
+            <form id="serviceForm">
+              <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" class="form-control" required />
+              </div>
+
+              <div class="form-group">
+                <label for="service">Service Needed</label>
+                <select id="service" class="form-control" required>
+                  <option value="">Select a Service</option>
+                  <option value="graphics">Graphics Design</option>
+                  <option value="typing">Typing Services</option>
+                  <option value="printing">Printing Services</option>
+                  <option value="internet">Internet Services</option>
+                  <option value="seminar">Seminar Support</option>
+                  <option value="training">Training Services</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Project Details</label>
+                <textarea id="message" class="form-control" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="file">Upload File (Optional)</label>
+                <input type="file" id="file" class="form-control" />
+              </div>
+
+              <button type="submit" class="submit-btn">Submit Request</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Divine Wisdom Computers</h3>
+            <p>
+              Empowering your digital life with expert services in graphics,
+              printing, typing, and more.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://facebook.com/divinewisdomcomputers"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://twitter.com/divinewisdomcomp"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://instagram.com/divinewisdomcomputers"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://wa.me/2349139285285"
+                class="social-link"
+                target="_blank"
+              >
+                <i class="fab fa-whatsapp"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#testimonials">Testimonials</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Our Services</h3>
+            <ul class="footer-links">
+              <li><a href="#">Graphics Design</a></li>
+              <li><a href="#">Typing Services</a></li>
+              <li><a href="#">Printing Services</a></li>
+              <li><a href="#">Internet Services</a></li>
+              <li><a href="#">Seminar Support</a></li>
+              <li><a href="#">Training Services</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Business Hours</h3>
+            <ul class="footer-links">
+              <li>Monday - Friday: 8:00 AM - 8:00 PM</li>
+              <li>Saturday: 9:00 AM - 6:00 PM</li>
+              <li>Sunday: 10:00 AM - 4:00 PM</li>
+              <li>Public Holidays: 10:00 AM - 3:00 PM</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="copyright">
+          <p>
+            &copy; 2024 Divine Wisdom Computers. All Rights Reserved. | Ngwa
+            Road, Aba Abia State
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile Navigation Toggle
+      const mobileToggle = document.getElementById("mobileToggle");
+      const navMenu = document.getElementById("navMenu");
+
+      mobileToggle.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+
+      // Smooth Scrolling
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          navMenu.classList.remove("active");
+
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+
+      // Active link on scroll
+      window.addEventListener("scroll", () => {
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("nav ul li a");
+
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 200) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href").substring(1) === current) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Notification function
+      function showNotification(message, isError = false) {
+        const notification = document.getElementById("notification");
+        notification.textContent = message;
+
+        if (isError) {
+          notification.classList.add("error");
+        } else {
+          notification.classList.remove("error");
+        }
+
+        notification.classList.add("show");
+
+        setTimeout(() => {
+          notification.classList.remove("show");
+        }, 3000);
+      }
+
+      // Form submission with EmailJS
+      const serviceForm = document.getElementById("serviceForm");
+      serviceForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Form validation
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+        const service = document.getElementById("service").value;
+        const message = document.getElementById("message").value;
+
+        if (!name || !email || !phone || !service || !message) {
+          showNotification("Please fill all required fields", true);
+          return;
+        }
+
+        // Prepare email parameters
+        const templateParams = {
+          from_name: name,
+          from_email: email,
+          phone: phone,
+          service: service,
+          message: message,
+        };
+
+        // Send email using EmailJS
+        emailjs
+          .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
+          .then(
+            function (response) {
+              console.log("SUCCESS!", response.status, response.text);
+              showNotification("Thank you! Your request has been submitted.");
+              serviceForm.reset();
+            },
+            function (error) {
+              console.log("FAILED...", error);
+              showNotification(
+                "Failed to send request. Please try again.",
+                true
+              );
+            }
+          );
+      });
+    </script>
+  </body>
+</html>
