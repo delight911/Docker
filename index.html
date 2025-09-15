@@ -8,12 +8,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
-      })();
-    </script>
     <style>
       :root {
           --indigo: #4b0082;
@@ -393,6 +387,86 @@
           margin-bottom: 5px;
       }
 
+      /* Payment Section */
+      .payment {
+          background: var(--white);
+      }
+
+      .payment-content {
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+      }
+
+      .payment-details {
+          background: var(--light-gray);
+          padding: 2rem;
+          border-radius: 15px;
+          margin: 2rem 0;
+          box-shadow: var(--shadow);
+      }
+
+      .payment-item {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+          border-bottom: 1px dashed var(--medium-gray);
+      }
+
+      .payment-item:last-child {
+          border-bottom: none;
+          margin-bottom: 0;
+          padding-bottom: 0;
+      }
+
+      .payment-item strong {
+          color: var(--indigo);
+      }
+
+      .payment-actions {
+          display: flex;
+          justify-content: center;
+          gap: 1rem;
+          margin-top: 2rem;
+          flex-wrap: wrap;
+      }
+
+      .copy-btn {
+          background: var(--indigo-light);
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          border-radius: 50px;
+          cursor: pointer;
+          transition: var(--transition);
+          display: flex;
+          align-items: center;
+          gap: 8px;
+      }
+
+      .copy-btn:hover {
+          background: var(--indigo);
+      }
+
+      .opay-link {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          background: var(--success);
+          color: white;
+          padding: 10px 20px;
+          border-radius: 50px;
+          text-decoration: none;
+          transition: var(--transition);
+      }
+
+      .opay-link:hover {
+          background: #3d8b40;
+          transform: translateY(-3px);
+          box-shadow: var(--shadow-hover);
+      }
+
       /* Contact Section */
       .contact {
           background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
@@ -657,6 +731,11 @@
           .hero p {
               font-size: 1.2rem;
           }
+
+          .payment-actions {
+              flex-direction: column;
+              align-items: center;
+          }
       }
 
       @media (max-width: 576px) {
@@ -691,6 +770,7 @@
             <li><a href="#home" class="active">Home</a></li>
             <li><a href="#about">About Us</a></li>
             <li><a href="#services">Services</a></li>
+            <li><a href="#payment">Pay Online</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
@@ -855,6 +935,46 @@
               <li>Software training</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section class="payment" id="payment">
+      <div class="container">
+        <div class="section-title">
+          <h2>Pay Online</h2>
+          <p>Convenient payment options through OPay</p>
+        </div>
+        <div class="payment-content">
+          <div class="payment-details">
+            <div class="payment-item">
+              <strong>Bank:</strong>
+              <span>OPay Digital Services Limited (OPay)</span>
+            </div>
+            <div class="payment-item">
+              <strong>Account Number:</strong>
+              <span>9139285285</span>
+            </div>
+            <div class="payment-item">
+              <strong>Account Name:</strong>
+              <span>CHIOMA THERESA IKEH</span>
+            </div>
+          </div>
+          
+          <div class="payment-actions">
+            <button class="copy-btn" id="copyAccountBtn">
+              <i class="fas fa-copy"></i> Copy Account Number
+            </button>
+            
+            <a href="https://opayweb.com/pay" class="opay-link" target="_blank" id="opayLink">
+              <i class="fas fa-external-link-alt"></i> Pay with OPay
+            </a>
+          </div>
+          
+          <p style="margin-top: 2rem; font-style: italic;">
+            After making your payment, please send proof of payment to our WhatsApp number or email for confirmation.
+          </p>
         </div>
       </div>
     </section>
@@ -1123,6 +1243,7 @@
               <li><a href="#home">Home</a></li>
               <li><a href="#about">About Us</a></li>
               <li><a href="#services">Services</a></li>
+              <li><a href="#payment">Pay Online</a></li>
               <li><a href="#testimonials">Testimonials</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1222,7 +1343,19 @@
         }, 3000);
       }
 
-      // Form submission with EmailJS
+      // Copy Account Number Functionality
+      const copyAccountBtn = document.getElementById("copyAccountBtn");
+      copyAccountBtn.addEventListener("click", () => {
+        const accountNumber = "9139285285";
+        navigator.clipboard.writeText(accountNumber).then(() => {
+          showNotification("Account number copied to clipboard!");
+        }).catch(err => {
+          showNotification("Failed to copy account number", true);
+          console.error('Failed to copy: ', err);
+        });
+      });
+
+      // Form submission to WhatsApp and Email
       const serviceForm = document.getElementById("serviceForm");
       serviceForm.addEventListener("submit", function (e) {
         e.preventDefault();
@@ -1239,32 +1372,31 @@
           return;
         }
 
-        // Prepare email parameters
-        const templateParams = {
-          from_name: name,
-          from_email: email,
-          phone: phone,
-          service: service,
-          message: message,
-        };
+        // Prepare message for WhatsApp
+        const whatsappMessage = `New Service Request:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0AMessage: ${message}`;
+        
+        // Open WhatsApp with pre-filled message
+        window.open(`https://wa.me/2349139285285?text=${whatsappMessage}`, '_blank');
+        
+        // Prepare email content
+        const emailSubject = `New Service Request from ${name}`;
+        const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AService: ${service}%0D%0AMessage: ${message}`;
+        
+        // Open email client
+        window.location.href = `mailto:delightrep@gmail.com?subject=${emailSubject}&body=${emailBody}`;
 
-        // Send email using EmailJS
-        emailjs
-          .send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", templateParams)
-          .then(
-            function (response) {
-              console.log("SUCCESS!", response.status, response.text);
-              showNotification("Thank you! Your request has been submitted.");
-              serviceForm.reset();
-            },
-            function (error) {
-              console.log("FAILED...", error);
-              showNotification(
-                "Failed to send request. Please try again.",
-                true
-              );
-            }
-          );
+        showNotification("Thank you! Please complete sending via WhatsApp or email.");
+        serviceForm.reset();
+      });
+
+      // OPay App Link - Try to open app or redirect to store
+      const opayLink = document.getElementById("opayLink");
+      opayLink.addEventListener("click", function(e) {
+        // Try to open OPay app with deep link
+        window.location.href = "opay://payment/pay?account=9139285285";
+        
+        // If app is not installed, this will fail and user will stay on page
+        // The external link will then open in a new tab as fallback
       });
     </script>
   </body>
