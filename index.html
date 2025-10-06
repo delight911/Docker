@@ -30,7 +30,7 @@
         
         body {
             color: var(--dark-text);
-            background-color: var(--light-bg);
+            background-color: white;
             line-height: 1.6;
         }
         
@@ -43,8 +43,8 @@
         
         /* Header Styles */
         header {
-            background: var(--gradient);
-            color: white;
+            background: white;
+            color: var(--dark-text);
             padding: 15px 0;
             position: sticky;
             top: 0;
@@ -72,11 +72,13 @@
         .logo-text h1 {
             font-size: 1.5rem;
             line-height: 1.2;
+            color: var(--dark-blue);
         }
         
         .logo-text p {
             font-size: 0.8rem;
             opacity: 0.9;
+            color: var(--light-text);
         }
         
         nav ul {
@@ -86,7 +88,7 @@
         }
         
         nav a {
-            color: white;
+            color: var(--dark-text);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -94,7 +96,7 @@
         }
         
         nav a:hover {
-            color: var(--light-gold);
+            color: var(--primary-blue);
         }
         
         nav a::after {
@@ -104,7 +106,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--light-gold);
+            background-color: var(--primary-blue);
             transition: width 0.3s;
         }
         
@@ -116,30 +118,20 @@
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--dark-text);
             font-size: 1.5rem;
             cursor: pointer;
         }
         
         /* Hero Section */
         .hero {
-            background: var(--gradient);
-            color: white;
+            background: white;
+            color: var(--dark-text);
             padding: 80px 0;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.1"><polygon points="0,0 1000,50 1000,100 0,100"/></svg>');
-            background-size: cover;
+            border-bottom: 1px solid #e2e8f0;
         }
         
         .hero-content {
@@ -152,18 +144,19 @@
         .hero h1 {
             font-size: 3rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            color: var(--dark-blue);
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
+            color: var(--light-text);
         }
         
         .btn {
             display: inline-block;
-            background-color: var(--gold);
+            background-color: var(--primary-blue);
             color: white;
             padding: 12px 30px;
             border-radius: 50px;
@@ -177,7 +170,7 @@
         }
         
         .btn:hover {
-            background-color: var(--light-gold);
+            background-color: var(--dark-blue);
             transform: translateY(-3px);
             box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
         }
@@ -257,22 +250,23 @@
         }
         
         .about-image {
-            background: var(--gradient);
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
             border-radius: 10px;
             height: 400px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--dark-text);
             font-size: 1.5rem;
             text-align: center;
             padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
         
         /* Services Section */
         .services {
-            background-color: white;
+            background-color: #f8fafc;
         }
         
         .services-grid {
@@ -356,7 +350,8 @@
             background: white;
             padding: 40px;
             border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
         
         .payment-info {
@@ -406,13 +401,13 @@
         
         /* Testimonials Section */
         .testimonials {
-            background-color: var(--light-bg);
+            background-color: white;
         }
         
-        .testimonials-slider {
-            max-width: 800px;
-            margin: 0 auto;
-            position: relative;
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
         
         .testimonial-card {
@@ -421,7 +416,12 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             text-align: center;
-            margin: 0 20px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
         }
         
         .testimonial-text {
@@ -433,31 +433,12 @@
         .testimonial-author {
             font-weight: 600;
             color: var(--dark-blue);
+            margin-bottom: 5px;
         }
         
         .testimonial-role {
             color: var(--light-text);
             font-size: 0.9rem;
-        }
-        
-        .slider-controls {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 30px;
-        }
-        
-        .slider-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: #cbd5e1;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .slider-dot.active {
-            background-color: var(--primary-blue);
         }
         
         /* Contact Section */
@@ -516,6 +497,7 @@
             padding: 30px;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
         
         .form-group {
@@ -589,9 +571,10 @@
         
         /* Footer */
         footer {
-            background: var(--dark-blue);
-            color: white;
+            background: #f8fafc;
+            color: var(--dark-text);
             padding: 60px 0 20px;
+            border-top: 1px solid #e2e8f0;
         }
         
         .footer-content {
@@ -606,6 +589,7 @@
             margin-bottom: 20px;
             position: relative;
             padding-bottom: 10px;
+            color: var(--dark-blue);
         }
         
         .footer-about h3::after, .footer-links h3::after, .footer-hours h3::after, .footer-contact h3::after {
@@ -634,7 +618,7 @@
             justify-content: center;
             width: 40px;
             height: 40px;
-            background: rgba(255, 255, 255, 0.1);
+            background: var(--primary-blue);
             border-radius: 50%;
             color: white;
             text-decoration: none;
@@ -655,13 +639,13 @@
         }
         
         .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
+            color: var(--light-text);
             text-decoration: none;
             transition: color 0.3s;
         }
         
         .footer-links a:hover {
-            color: var(--gold);
+            color: var(--primary-blue);
         }
         
         .footer-hours p {
@@ -685,7 +669,7 @@
         .footer-bottom {
             text-align: center;
             padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-top: 1px solid #e2e8f0;
             opacity: 0.7;
         }
         
@@ -726,6 +710,10 @@
                 grid-template-columns: 1fr;
             }
             
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .payment-actions {
                 flex-direction: column;
             }
@@ -747,9 +735,10 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--gradient);
+                background: white;
                 padding: 20px;
                 box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                border-top: 1px solid #e2e8f0;
             }
             
             nav ul.show {
@@ -996,19 +985,34 @@
                 <h2>Testimonials</h2>
                 <p>What our clients say about our services</p>
             </div>
-            <div class="testimonials-slider">
+            <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-text">
                         "Divine Wisdom Computers helped me complete my project on time with professional formatting. Their service is exceptional and highly recommended!"
                     </div>
-                    <div class="testimonial-author">John Smith</div>
-                    <div class="testimonial-role">University Student</div>
+                    <div class="testimonial-author">Grace Okoro</div>
+                    <div class="testimonial-role">Student, Abia State College of Health Sciences</div>
                 </div>
-                <div class="slider-controls">
-                    <div class="slider-dot active"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
-                    <div class="slider-dot"></div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "The quality of their graphic design work is outstanding. They created a professional logo and business cards that have helped my business stand out."
+                    </div>
+                    <div class="testimonial-author">Chukwuma Nwosu</div>
+                    <div class="testimonial-role">Business Entrepreneur</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "I always use Divine Wisdom Computers for all my printing needs. Their prices are reasonable and the quality is consistently excellent."
+                    </div>
+                    <div class="testimonial-author">Sarah Johnson</div>
+                    <div class="testimonial-role">Regular Customer</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "As a final year student, their project binding and formatting services saved me during my thesis submission. Professional and reliable!"
+                    </div>
+                    <div class="testimonial-author">Emeka Okafor</div>
+                    <div class="testimonial-role">Graduate Student</div>
                 </div>
             </div>
         </div>
@@ -1138,10 +1142,10 @@
                 </div>
                 <div class="footer-hours">
                     <h3>Business Hours</h3>
-                    <p>Monday–Friday: 8:00 AM – 8:00 PM</p>
-                    <p>Saturday: 9:00 AM – 6:00 PM</p>
-                    <p>Sunday: 10:00 AM – 4:00 PM</p>
-                    <p>Public Holidays: 10:00 AM – 3:00 PM</p>
+                    <p>Monday–Friday: 6:00 AM – 8:00 PM</p>
+                    <p>Saturday: 6:00 AM – 8:00 PM</p>
+                    <p>Sunday: 8:00 AM – 4:00 PM</p>
+                    <p>Public Holidays: 8:00 AM – 4:00 PM</p>
                 </div>
                 <div class="footer-contact">
                     <h3>Contact Info</h3>
@@ -1205,16 +1209,6 @@
         document.getElementById('file-upload').addEventListener('change', function() {
             const fileName = this.files[0] ? this.files[0].name : 'Choose File';
             document.querySelector('.file-upload-btn').textContent = fileName;
-        });
-
-        // Testimonial slider (simple implementation)
-        const dots = document.querySelectorAll('.slider-dot');
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', function() {
-                dots.forEach(d => d.classList.remove('active'));
-                this.classList.add('active');
-                // In a real implementation, you would change the testimonial content here
-            });
         });
     </script>
 </body>
