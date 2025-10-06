@@ -1,1403 +1,1221 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Divine Wisdom Computers | Best in What We Do</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divine Wisdom Computers - Best in What We Do</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-      :root {
-          --indigo: #4b0082;
-          --indigo-light: #6a3093;
-          --indigo-lighter: #8a57b5;
-          --white: #ffffff;
-          --light-gray: #f5f5f7;
-          --medium-gray: #e0e0e0;
-          --dark-gray: #333333;
-          --accent: #ff6b6b;
-          --success: #4caf50;
-          --transition: all 0.3s ease;
-          --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-          --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
-      }
-
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-      }
-
-      body {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-          line-height: 1.6;
-          color: var(--dark-gray);
-          background-color: var(--light-gray);
-          overflow-x: hidden;
-      }
-
-      .container {
-          width: 90%;
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 2rem 0;
-      }
-
-      section {
-          padding: 5rem 0;
-      }
-
-      .btn {
-          display: inline-block;
-          background: var(--indigo);
-          color: var(--white);
-          padding: 12px 28px;
-          border-radius: 50px;
-          text-decoration: none;
-          font-weight: 600;
-          transition: var(--transition);
-          border: 2px solid var(--indigo);
-          cursor: pointer;
-      }
-
-      .btn:hover {
-          background: transparent;
-          color: var(--indigo);
-          transform: translateY(-3px);
-          box-shadow: var(--shadow-hover);
-      }
-
-      .btn-outline {
-          background: transparent;
-          color: var(--indigo);
-      }
-
-      .btn-outline:hover {
-          background: var(--indigo);
-          color: var(--white);
-      }
-
-      .section-title {
-          text-align: center;
-          margin-bottom: 3rem;
-          position: relative;
-      }
-
-      .section-title h2 {
-          font-size: 2.5rem;
-          color: var(--indigo);
-          margin-bottom: 1rem;
-      }
-
-      .section-title p {
-          color: var(--dark-gray);
-          font-size: 1.1rem;
-          max-width: 700px;
-          margin: 0 auto;
-      }
-
-      .section-title::after {
-          content: '';
-          position: absolute;
-          bottom: -15px;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 80px;
-          height: 4px;
-          background: var(--indigo-light);
-          border-radius: 2px;
-      }
-
-      /* Header Styles */
-      header {
-          background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
-          color: var(--white);
-          padding: 1rem 0;
-          position: fixed;
-          width: 100%;
-          top: 0;
-          z-index: 1000;
-          box-shadow: var(--shadow);
-      }
-
-      .header-container {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-      }
-
-      .logo {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-      }
-
-      .logo h1 {
-          font-size: 1.8rem;
-          font-weight: 700;
-      }
-
-      .logo-icon {
-          font-size: 2rem;
-          color: var(--white);
-      }
-
-      nav ul {
-          display: flex;
-          list-style: none;
-          gap: 2rem;
-      }
-
-      nav a {
-          color: var(--white);
-          text-decoration: none;
-          font-weight: 600;
-          font-size: 1.1rem;
-          transition: var(--transition);
-          padding: 8px 15px;
-          border-radius: 30px;
-      }
-
-      nav a:hover,
-      nav a.active {
-          background: rgba(255, 255, 255, 0.15);
-      }
-
-      .mobile-toggle {
-          display: none;
-          font-size: 1.5rem;
-          color: var(--white);
-          background: none;
-          border: none;
-          cursor: pointer;
-      }
-
-      /* Hero Section */
-      .hero {
-          min-height: 100vh;
-          display: flex;
-          align-items: center;
-          background: linear-gradient(rgba(75, 0, 130, 0.85), rgba(106, 48, 147, 0.85)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3') no-repeat center center/cover;
-          color: var(--white);
-          text-align: center;
-          padding-top: 80px;
-      }
-
-      .hero-content {
-          max-width: 800px;
-          margin: 0 auto;
-      }
-
-      .hero h1 {
-          font-size: 3.5rem;
-          margin-bottom: 1rem;
-          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-      }
-
-      .hero p {
-          font-size: 1.4rem;
-          margin-bottom: 2rem;
-          opacity: 0.9;
-      }
-
-      .hero-btns {
-          display: flex;
-          gap: 1rem;
-          justify-content: center;
-          margin-top: 2rem;
-      }
-
-      .hero .btn {
-          font-size: 1.1rem;
-          padding: 15px 35px;
-      }
-
-      /* About Section */
-      .about {
-          background: var(--white);
-      }
-
-      .about-content {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 3rem;
-          align-items: center;
-      }
-
-      .about-text h3 {
-          font-size: 2rem;
-          color: var(--indigo);
-          margin-bottom: 1.5rem;
-      }
-
-      .about-text p {
-          margin-bottom: 1.5rem;
-          font-size: 1.1rem;
-      }
-
-      .motto {
-          font-style: italic;
-          font-weight: 600;
-          font-size: 1.3rem;
-          color: var(--indigo-light);
-          border-left: 4px solid var(--indigo-light);
-          padding-left: 1.5rem;
-          margin: 2rem 0;
-      }
-
-      .about-img {
-          border-radius: 15px;
-          overflow: hidden;
-          box-shadow: var(--shadow);
-          height: 400px;
-          background: linear-gradient(45deg, var(--indigo-light), var(--indigo-lighter));
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--white);
-          font-size: 5rem;
-      }
-
-      /* Services Section */
-      .services {
-          background: var(--light-gray);
-      }
-
-      .services-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-          gap: 2rem;
-      }
-
-      .service-card {
-          background: var(--white);
-          border-radius: 15px;
-          padding: 2.5rem;
-          text-align: center;
-          transition: var(--transition);
-          box-shadow: var(--shadow);
-          border-bottom: 4px solid var(--indigo);
-      }
-
-      .service-card:hover {
-          transform: translateY(-10px);
-          box-shadow: var(--shadow-hover);
-      }
-
-      .service-icon {
-          font-size: 3.5rem;
-          color: var(--indigo);
-          margin-bottom: 1.5rem;
-      }
-
-      .service-card h3 {
-          font-size: 1.5rem;
-          margin-bottom: 1rem;
-          color: var(--indigo);
-      }
-
-      .service-card ul {
-          list-style: none;
-          text-align: left;
-          margin-top: 1.5rem;
-      }
-
-      .service-card ul li {
-          padding: 8px 0;
-          border-bottom: 1px dashed var(--medium-gray);
-      }
-
-      .service-card ul li:last-child {
-          border-bottom: none;
-      }
-
-      .service-card ul li::before {
-          content: "✓";
-          color: var(--success);
-          font-weight: bold;
-          margin-right: 10px;
-      }
-
-      /* Testimonials Section */
-      .testimonials {
-          background: var(--white);
-      }
-
-      .testimonials-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-          gap: 2.5rem;
-      }
-
-      .testimonial-card {
-          background: var(--light-gray);
-          border-radius: 15px;
-          padding: 2rem;
-          position: relative;
-          box-shadow: var(--shadow);
-          transition: var(--transition);
-      }
-
-      .testimonial-card:hover {
-          transform: translateY(-5px);
-          box-shadow: var(--shadow-hover);
-      }
-
-      .testimonial-card::before {
-          content: """;
-          position: absolute;
-          top: -25px;
-          left: 20px;
-          font-size: 6rem;
-          color: var(--indigo-light);
-          opacity: 0.2;
-          font-family: Georgia, serif;
-      }
-
-      .testimonial-text {
-          font-style: italic;
-          margin-bottom: 1.5rem;
-          position: relative;
-          z-index: 1;
-      }
-
-      .testimonial-author {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-      }
-
-      .author-img {
-          width: 60px;
-          height: 60px;
-          border-radius: 50%;
-          background: var(--indigo-light);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--white);
-          font-weight: bold;
-          font-size: 1.5rem;
-      }
-
-      .author-info h4 {
-          color: var(--indigo);
-          margin-bottom: 5px;
-      }
-
-      /* Payment Section */
-      .payment {
-          background: var(--white);
-      }
-
-      .payment-content {
-          max-width: 800px;
-          margin: 0 auto;
-          text-align: center;
-      }
-
-      .payment-details {
-          background: var(--light-gray);
-          padding: 2rem;
-          border-radius: 15px;
-          margin: 2rem 0;
-          box-shadow: var(--shadow);
-      }
-
-      .payment-item {
-          display: flex;
-          justify-content: space-between;
-          margin-bottom: 1rem;
-          padding-bottom: 1rem;
-          border-bottom: 1px dashed var(--medium-gray);
-      }
-
-      .payment-item:last-child {
-          border-bottom: none;
-          margin-bottom: 0;
-          padding-bottom: 0;
-      }
-
-      .payment-item strong {
-          color: var(--indigo);
-      }
-
-      .payment-actions {
-          display: flex;
-          justify-content: center;
-          gap: 1rem;
-          margin-top: 2rem;
-          flex-wrap: wrap;
-      }
-
-      .copy-btn {
-          background: var(--indigo-light);
-          color: white;
-          border: none;
-          padding: 10px 20px;
-          border-radius: 50px;
-          cursor: pointer;
-          transition: var(--transition);
-          display: flex;
-          align-items: center;
-          gap: 8px;
-      }
-
-      .copy-btn:hover {
-          background: var(--indigo);
-      }
-
-      .opay-link {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          background: var(--success);
-          color: white;
-          padding: 10px 20px;
-          border-radius: 50px;
-          text-decoration: none;
-          transition: var(--transition);
-      }
-
-      .opay-link:hover {
-          background: #3d8b40;
-          transform: translateY(-3px);
-          box-shadow: var(--shadow-hover);
-      }
-
-      /* Contact Section */
-      .contact {
-          background: linear-gradient(135deg, var(--indigo), var(--indigo-light));
-          color: var(--white);
-      }
-
-      .contact-container {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 3rem;
-      }
-
-      .contact-info h3 {
-          font-size: 2rem;
-          margin-bottom: 1.5rem;
-      }
-
-      .contact-details {
-          margin: 2rem 0;
-      }
-
-      .contact-item {
-          display: flex;
-          align-items: center;
-          gap: 15px;
-          margin-bottom: 1.5rem;
-      }
-
-      .contact-icon {
-          width: 50px;
-          height: 50px;
-          background: rgba(255, 255, 255, 0.1);
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 1.3rem;
-      }
-
-      .contact-text h4 {
-          margin-bottom: 5px;
-      }
-
-      .contact-text p {
-          transition: var(--transition);
-      }
-
-      .contact-text a {
-          color: var(--white);
-          text-decoration: none;
-          transition: var(--transition);
-      }
-
-      .contact-text a:hover {
-          color: var(--accent);
-          text-decoration: underline;
-      }
-
-      .contact-form {
-          background: var(--white);
-          padding: 2.5rem;
-          border-radius: 15px;
-          box-shadow: var(--shadow-hover);
-      }
-
-      .contact-form h3 {
-          color: var(--indigo);
-          margin-bottom: 1.5rem;
-          text-align: center;
-      }
-
-      .form-group {
-          margin-bottom: 1.5rem;
-      }
-
-      .form-group label {
-          display: block;
-          margin-bottom: 8px;
-          color: var(--dark-gray);
-          font-weight: 600;
-      }
-
-      .form-control {
-          width: 100%;
-          padding: 12px 15px;
-          border: 1px solid var(--medium-gray);
-          border-radius: 8px;
-          font-size: 1rem;
-          transition: var(--transition);
-      }
-
-      .form-control:focus {
-          border-color: var(--indigo);
-          outline: none;
-          box-shadow: 0 0 0 3px rgba(75, 0, 130, 0.1);
-      }
-
-      textarea.form-control {
-          min-height: 150px;
-          resize: vertical;
-      }
-
-      .submit-btn {
-          width: 100%;
-          padding: 15px;
-          background: var(--indigo);
-          color: var(--white);
-          border: none;
-          border-radius: 8px;
-          font-size: 1.1rem;
-          font-weight: 600;
-          cursor: pointer;
-          transition: var(--transition);
-      }
-
-      .submit-btn:hover {
-          background: var(--indigo-light);
-          transform: translateY(-3px);
-          box-shadow: var(--shadow-hover);
-      }
-
-      /* Notification styles */
-      .notification {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          padding: 15px 25px;
-          border-radius: 8px;
-          background: var(--success);
-          color: white;
-          font-weight: 600;
-          box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-          z-index: 2000;
-          transform: translateX(120%);
-          transition: transform 0.4s ease;
-      }
-
-      .notification.show {
-          transform: translateX(0);
-      }
-
-      .notification.error {
-          background: var(--accent);
-      }
-
-      /* Footer */
-      footer {
-          background: var(--dark-gray);
-          color: var(--white);
-          padding: 3rem 0 1.5rem;
-      }
-
-      .footer-content {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-          gap: 2rem;
-          margin-bottom: 2rem;
-      }
-
-      .footer-column h3 {
-          color: var(--white);
-          margin-bottom: 1.5rem;
-          font-size: 1.5rem;
-      }
-
-      .footer-links {
-          list-style: none;
-      }
-
-      .footer-links li {
-          margin-bottom: 10px;
-      }
-
-      .footer-links a {
-          color: var(--medium-gray);
-          text-decoration: none;
-          transition: var(--transition);
-      }
-
-      .footer-links a:hover {
-          color: var(--white);
-          padding-left: 5px;
-      }
-
-      .social-links {
-          display: flex;
-          gap: 1rem;
-          margin-top: 1.5rem;
-      }
-
-      .social-link {
-          width: 40px;
-          height: 40px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.1);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: var(--white);
-          transition: var(--transition);
-          text-decoration: none;
-      }
-
-      .social-link:hover {
-          background: var(--indigo);
-          transform: translateY(-3px);
-      }
-
-      .copyright {
-          text-align: center;
-          padding-top: 2rem;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          color: var(--medium-gray);
-          font-size: 0.9rem;
-      }
-
-      /* Responsive Design */
-      @media (max-width: 992px) {
-          .hero h1 {
-              font-size: 3rem;
-          }
-
-          .about-content,
-          .contact-container {
-              grid-template-columns: 1fr;
-              gap: 2rem;
-          }
-
-          .about-img {
-              height: 300px;
-          }
-      }
-
-      @media (max-width: 768px) {
-          nav ul {
-              position: fixed;
-              top: 70px;
-              left: 0;
-              background: var(--indigo);
-              width: 100%;
-              flex-direction: column;
-              align-items: center;
-              padding: 2rem 0;
-              gap: 1rem;
-              transform: translateY(-150%);
-              transition: var(--transition);
-              box-shadow: var(--shadow);
-          }
-
-          nav ul.active {
-              transform: translateY(0);
-          }
-
-          .mobile-toggle {
-              display: block;
-          }
-
-          .hero h1 {
-              font-size: 2.5rem;
-          }
-
-          .hero p {
-              font-size: 1.2rem;
-          }
-
-          .payment-actions {
-              flex-direction: column;
-              align-items: center;
-          }
-      }
-
-      @media (max-width: 576px) {
-          .hero h1 {
-              font-size: 2rem;
-          }
-
-          .section-title h2 {
-              font-size: 2rem;
-          }
-
-          .hero-btns {
-              flex-direction: column;
-              align-items: center;
-          }
-      }
+        :root {
+            --primary-blue: #2563eb;
+            --dark-blue: #1d4ed8;
+            --gold: #f59e0b;
+            --light-gold: #fbbf24;
+            --gradient: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+            --light-bg: #f8fafc;
+            --dark-text: #1e293b;
+            --light-text: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            color: var(--dark-text);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .logo i {
+            font-size: 2rem;
+            color: var(--gold);
+        }
+        
+        .logo-text h1 {
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--light-gold);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--light-gold);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: var(--gradient);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff" opacity="0.1"><polygon points="0,0 1000,50 1000,100 0,100"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--gold);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn:hover {
+            background-color: var(--light-gold);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--gold);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: var(--light-text);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+        
+        .feature i {
+            color: var(--gold);
+            font-size: 1.5rem;
+            margin-top: 5px;
+        }
+        
+        .about-image {
+            background: var(--gradient);
+            border-radius: 10px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Services Section */
+        .services {
+            background-color: white;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--primary-blue);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card.highlighted {
+            border-top: 4px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card.highlighted::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--gold);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+        
+        .service-card.highlighted .service-icon {
+            color: var(--gold);
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-blue);
+        }
+        
+        .service-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .service-card li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: bold;
+        }
+        
+        /* Payment Section */
+        .payment-content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .payment-info {
+            margin-bottom: 30px;
+        }
+        
+        .payment-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+        
+        .payment-details {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .payment-details p {
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .payment-details strong {
+            color: var(--dark-blue);
+        }
+        
+        .payment-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-secondary {
+            background-color: var(--primary-blue);
+        }
+        
+        .payment-note {
+            background: #fff9db;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+            margin-top: 20px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-bg);
+        }
+        
+        .testimonials-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            margin: 0 20px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--light-text);
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--dark-blue);
+        }
+        
+        .testimonial-role {
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+        
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+        
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #cbd5e1;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .slider-dot.active {
+            background-color: var(--primary-blue);
+        }
+        
+        /* Contact Section */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-blue);
+        }
+        
+        .contact-details {
+            margin-top: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-text h4 {
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+        
+        .contact-text a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .contact-text a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-blue);
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+        
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .file-upload {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            width: 100%;
+        }
+        
+        .file-upload-btn {
+            background: var(--light-bg);
+            border: 1px dashed #cbd5e1;
+            color: var(--light-text);
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            text-align: left;
+        }
+        
+        .file-upload input[type="file"] {
+            position: absolute;
+            left: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .confirmation-message {
+            display: none;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-blue);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-about h3, .footer-links h3, .footer-hours h3, .footer-contact h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-about h3::after, .footer-links h3::after, .footer-hours h3::after, .footer-contact h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+        
+        .footer-about p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--gold);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+        
+        .footer-hours p {
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+        
+        .footer-contact p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            opacity: 0.8;
+        }
+        
+        .footer-contact i {
+            color: var(--gold);
+            margin-top: 5px;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            nav ul {
+                gap: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .payment-actions {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--gradient);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <!-- Header -->
     <header>
-      <div class="container header-container">
-        <div class="logo">
-          <i class="fas fa-laptop-code logo-icon"></i>
-          <h1>Divine Wisdom Computers</h1>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="fas fa-laptop-code"></i>
+                <div class="logo-text">
+                    <h1>Divine Wisdom Computers</h1>
+                    <p>Abia State College of Health Sciences and Management Technology, Aba</p>
+                </div>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#payment">Pay Online</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-        <button class="mobile-toggle" id="mobileToggle">
-          <i class="fas fa-bars"></i>
-        </button>
-        <nav>
-          <ul id="navMenu">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#payment">Pay Online</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
     </header>
-
-    <!-- Notification -->
-    <div class="notification" id="notification">
-      Thank you! Your request has been submitted.
-    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-          <h1>Welcome to Divine Wisdom Computers</h1>
-          <p>
-            Empowering your digital life with expert services in graphics,
-            printing, typing, and more.
-          </p>
-          <div class="hero-btns">
-            <a href="#services" class="btn">Our Services</a>
-            <a href="#contact" class="btn btn-outline">Contact Us</a>
-          </div>
+        <div class="container hero-content">
+            <h1>Best in What We Do</h1>
+            <p>Empowering your digital life with expert services in graphics, printing, typing, and more.</p>
+            <a href="#contact" class="btn">Request a Service</a>
         </div>
-      </div>
     </section>
 
-    <!-- About Us Section -->
-    <section class="about" id="about">
-      <div class="container">
-        <div class="section-title">
-          <h2>About Us</h2>
-          <p>
-            Your trusted partner for all things digital and document-related
-          </p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+                <p>Learn more about Divine Wisdom Computers and our commitment to excellence</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted Digital Partner</h3>
+                    <p>Divine Wisdom Computers is a trusted partner for students, businesses, and individuals seeking professional digital services. With many years of experience, we focus on delivering high-quality results that exceed expectations.</p>
+                    <p>Our mission is to make technology accessible and helpful for all, providing services that empower your digital life and help you achieve your goals.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="fas fa-award"></i>
+                            <div>
+                                <h4>Professional Quality</h4>
+                                <p>We maintain the highest standards in all our services</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Years of Experience</h4>
+                                <p>Trusted by clients for many years of reliable service</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Customer Focused</h4>
+                                <p>We prioritize your needs and satisfaction above all</p>
+                            </div>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <h4>Innovative Solutions</h4>
+                                <p>We provide creative and effective digital solutions</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div>
+                        <i class="fas fa-laptop-code fa-3x"></i>
+                        <p>Digital Excellence Since 2010</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="about-content">
-          <div class="about-text">
-            <h3>Who We Are</h3>
-            <p>
-              Divine Wisdom Computers is your trusted partner for all things
-              digital and document-related. We provide top-notch services
-              tailored to students, businesses, and individuals who want the
-              best in computer services, printing, and IT support.
-            </p>
-            <p>
-              With years of experience and a commitment to excellence, we've
-              helped thousands of clients achieve their goals through our
-              professional services and expert guidance.
-            </p>
-            <div class="motto">"Best in What We Do"</div>
-            <p>
-              Our mission is to provide affordable, high-quality computing
-              services to everyone in our community, helping bridge the digital
-              divide and empowering our clients with technology solutions.
-            </p>
-          </div>
-          <div class="about-img">
-            <i class="fas fa-lightbulb"></i>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Services Section -->
     <section class="services" id="services">
-      <div class="container">
-        <div class="section-title">
-          <h2>Our Services</h2>
-          <p>We offer a wide range of professional and affordable services</p>
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>Comprehensive digital solutions tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <!-- Project Services (Highlighted) -->
+                <div class="service-card highlighted">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Project Services</h3>
+                    <p>Complete project support from start to finish</p>
+                    <ul>
+                        <li>Project Typing</li>
+                        <li>Project Binding</li>
+                        <li>Project Research</li>
+                        <li>Project Printing</li>
+                        <li>Project Formatting</li>
+                    </ul>
+                </div>
+                
+                <!-- Graphics Design -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Graphics Design</h3>
+                    <p>Creative visual solutions for your business</p>
+                    <ul>
+                        <li>Logos & Branding</li>
+                        <li>Flyers & Posters</li>
+                        <li>Banners & Signage</li>
+                        <li>Business Cards</li>
+                        <li>Brochures & Booklets</li>
+                    </ul>
+                </div>
+                
+                <!-- Typing Services -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3>Typing Services</h3>
+                    <p>Professional typing for all your documents</p>
+                    <ul>
+                        <li>Projects & Assignments</li>
+                        <li>Letters & Documents</li>
+                        <li>Theses & Dissertations</li>
+                        <li>Resumes & CVs</li>
+                        <li>Manuscripts</li>
+                    </ul>
+                </div>
+                
+                <!-- Printing Services -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3>Printing Services</h3>
+                    <p>High-quality printing for all your needs</p>
+                    <ul>
+                        <li>Black & White Printing</li>
+                        <li>Color Printing</li>
+                        <li>Photocopying</li>
+                        <li>Lamination</li>
+                        <li>Large Format Printing</li>
+                    </ul>
+                </div>
+                
+                <!-- Internet Services -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Internet Services</h3>
+                    <p>Stay connected with our internet solutions</p>
+                    <ul>
+                        <li>Browsing & Research</li>
+                        <li>Online Assignments</li>
+                        <li>Email Setup</li>
+                        <li>Online Applications</li>
+                        <li>Research Assistance</li>
+                    </ul>
+                </div>
+                
+                <!-- Seminar Support -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>Seminar Support</h3>
+                    <p>Complete support for your seminars and presentations</p>
+                    <ul>
+                        <li>Design & Layout</li>
+                        <li>Typing & Editing</li>
+                        <li>Printing Services</li>
+                        <li>Binding & Packaging</li>
+                        <li>Presentation Support</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="services-grid">
-          <!-- Service 1 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-paint-brush"></i>
-            </div>
-            <h3>Graphics Design</h3>
-            <ul>
-              <li>Logos and branding</li>
-              <li>Flyers and posters</li>
-              <li>Banners and signage</li>
-              <li>Business cards</li>
-              <li>Brochures and booklets</li>
-            </ul>
-          </div>
-
-          <!-- Service 2 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-keyboard"></i>
-            </div>
-            <h3>Typing Services</h3>
-            <ul>
-              <li>Projects and assignments</li>
-              <li>Documents and letters</li>
-              <li>Theses and dissertations</li>
-              <li>Resumes and CVs</li>
-              <li>Manuscripts</li>
-            </ul>
-          </div>
-
-          <!-- Service 3 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-print"></i>
-            </div>
-            <h3>Printing Services</h3>
-            <ul>
-              <li>Black & white printing</li>
-              <li>Color printing</li>
-              <li>Photocopying</li>
-              <li>Project binding</li>
-              <li>Lamination</li>
-              <li>Large format printing</li>
-            </ul>
-          </div>
-
-          <!-- Service 4 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-globe"></i>
-            </div>
-            <h3>Internet Services</h3>
-            <ul>
-              <li>Internet browsing</li>
-              <li>Online assignments</li>
-              <li>Research assistance</li>
-              <li>Email setup</li>
-              <li>Online applications</li>
-            </ul>
-          </div>
-
-          <!-- Service 5 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-chalkboard-teacher"></i>
-            </div>
-            <h3>Seminar Support</h3>
-            <ul>
-              <li>Design and layout</li>
-              <li>Typing and editing</li>
-              <li>Printing services</li>
-              <li>Binding and packaging</li>
-              <li>Presentation support</li>
-            </ul>
-          </div>
-
-          <!-- Service 6 -->
-          <div class="service-card">
-            <div class="service-icon">
-              <i class="fas fa-graduation-cap"></i>
-            </div>
-            <h3>Training Services</h3>
-            <ul>
-              <li>Computer packages</li>
-              <li>Graphic design</li>
-              <li>Web development</li>
-              <li>IT fundamentals</li>
-              <li>Software training</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Payment Section -->
-    <section class="payment" id="payment">
-      <div class="container">
-        <div class="section-title">
-          <h2>Pay Online</h2>
-          <p>Convenient payment options through OPay</p>
+    <section id="payment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Pay Online</h2>
+                <p>Convenient and secure payment options</p>
+            </div>
+            <div class="payment-content">
+                <div class="payment-info">
+                    <h3>Payment Details</h3>
+                    <div class="payment-details">
+                        <p><strong>Bank:</strong> OPay Digital Services Limited (OPay)</p>
+                        <p><strong>Account Number:</strong> <span id="account-number">9139285285</span></p>
+                        <p><strong>Account Name:</strong> CHIOMA THERESA IKEH</p>
+                    </div>
+                    <div class="payment-actions">
+                        <button class="btn" id="copy-account">Copy Account Number</button>
+                        <a href="#" class="btn btn-secondary">Pay with OPay</a>
+                    </div>
+                    <div class="payment-note">
+                        <p><strong>Important:</strong> After making your payment, please send proof of payment to our WhatsApp number or email for confirmation.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="payment-content">
-          <div class="payment-details">
-            <div class="payment-item">
-              <strong>Bank:</strong>
-              <span>OPay Digital Services Limited (OPay)</span>
-            </div>
-            <div class="payment-item">
-              <strong>Account Number:</strong>
-              <span>9139285285</span>
-            </div>
-            <div class="payment-item">
-              <strong>Account Name:</strong>
-              <span>CHIOMA THERESA IKEH</span>
-            </div>
-          </div>
-          
-          <div class="payment-actions">
-            <button class="copy-btn" id="copyAccountBtn">
-              <i class="fas fa-copy"></i> Copy Account Number
-            </button>
-            
-            <a href="https://opayweb.com/pay" class="opay-link" target="_blank" id="opayLink">
-              <i class="fas fa-external-link-alt"></i> Pay with OPay
-            </a>
-          </div>
-          
-          <p style="margin-top: 2rem; font-style: italic;">
-            After making your payment, please send proof of payment to our WhatsApp number or email for confirmation.
-          </p>
-        </div>
-      </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-      <div class="container">
-        <div class="section-title">
-          <h2>What Our Clients Say</h2>
-          <p>Hear from our satisfied customers</p>
+        <div class="container">
+            <div class="section-title">
+                <h2>Testimonials</h2>
+                <p>What our clients say about our services</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-text">
+                        "Divine Wisdom Computers helped me complete my project on time with professional formatting. Their service is exceptional and highly recommended!"
+                    </div>
+                    <div class="testimonial-author">John Smith</div>
+                    <div class="testimonial-role">University Student</div>
+                </div>
+                <div class="slider-controls">
+                    <div class="slider-dot active"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                    <div class="slider-dot"></div>
+                </div>
+            </div>
         </div>
-        <div class="testimonials-grid">
-          <!-- Testimonial 1 -->
-          <div class="testimonial-card">
-            <p class="testimonial-text">
-              Divine Wisdom Computers saved me during project rush hour! Their
-              typing and binding service was incredibly fast and professional. I
-              got my project delivered just in time for submission.
-            </p>
-            <div class="testimonial-author">
-              <div class="author-img">JS</div>
-              <div class="author-info">
-                <h4>John Smith</h4>
-                <p>University Student</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 2 -->
-          <div class="testimonial-card">
-            <p class="testimonial-text">
-              Best place in town for printing and design. I've been using their
-              services for my business for over two years, and they never
-              disappoint. Their attention to detail is exceptional.
-            </p>
-            <div class="testimonial-author">
-              <div class="author-img">MJ</div>
-              <div class="author-info">
-                <h4>Mary Johnson</h4>
-                <p>Small Business Owner</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 3 -->
-          <div class="testimonial-card">
-            <p class="testimonial-text">
-              The graphic design team created an amazing logo for my startup.
-              They understood my vision perfectly and delivered beyond my
-              expectations. Highly recommended!
-            </p>
-            <div class="testimonial-author">
-              <div class="author-img">DA</div>
-              <div class="author-info">
-                <h4>David Anderson</h4>
-                <p>Entrepreneur</p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Testimonial 4 -->
-          <div class="testimonial-card">
-            <p class="testimonial-text">
-              Their training services transformed my career. After completing
-              their web development course, I landed a job as a junior
-              developer. The instructors are knowledgeable and supportive.
-            </p>
-            <div class="testimonial-author">
-              <div class="author-img">ST</div>
-              <div class="author-info">
-                <h4>Sarah Thompson</h4>
-                <p>Web Developer</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-      <div class="container">
-        <div class="section-title">
-          <h2>Contact Us</h2>
-          <p>Get in touch with us today</p>
-        </div>
-        <div class="contact-container">
-          <div class="contact-info">
-            <h3>We'd love to hear from you</h3>
-            <p>
-              Whether you have a question about our services, need a quote, or
-              want to discuss a project, our team is ready to assist you.
-            </p>
-
-            <div class="contact-details">
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-phone"></i>
-                </div>
-                <div class="contact-text">
-                  <h4>Phone & WhatsApp</h4>
-                  <p><a href="tel:+2349139285285">09139285285</a></p>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-phone-alt"></i>
-                </div>
-                <div class="contact-text">
-                  <h4>Phone Only</h4>
-                  <p><a href="tel:+2348032632324">08032632324</a></p>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="contact-text">
-                  <h4>Email</h4>
-                  <p>
-                    <a href="mailto:delightrep@gmail.com"
-                      >delightrep@gmail.com</a
-                    >
-                  </p>
-                </div>
-              </div>
-
-              <div class="contact-item">
-                <div class="contact-icon">
-                  <i class="fas fa-map-marker-alt"></i>
-                </div>
-                <div class="contact-text">
-                  <h4>Location</h4>
-                  <p>Ngwa Road, Aba Abia State</p>
-                </div>
-              </div>
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get in Touch with Us</h2>
+                <p>Reach out for any inquiries or service requests</p>
             </div>
-
-            <div class="social-links">
-              <a
-                href="https://facebook.com/divinewisdomcomputers"
-                class="social-link"
-                target="_blank"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a
-                href="https://twitter.com/divinewisdomcomp"
-                class="social-link"
-                target="_blank"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a
-                href="https://instagram.com/divinewisdomcomputers"
-                class="social-link"
-                target="_blank"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://wa.me/2349139285285"
-                class="social-link"
-                target="_blank"
-              >
-                <i class="fab fa-whatsapp"></i>
-              </a>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p>We're here to help with all your digital needs. Reach out to us through any of the following channels:</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>WhatsApp & Phone</h4>
+                                <a href="https://wa.me/2349139285285" target="_blank">09139285285</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Phone Only</h4>
+                                <a href="tel:08032632324">08032632324</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <a href="mailto:delightrep@gmail.com">delightrep@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Ngwa Road, Aba, Abia State</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="service-request-form">
+                        <div class="form-group">
+                            <label for="full-name">Full Name</label>
+                            <input type="text" id="full-name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Needed</label>
+                            <select id="service" class="form-control" required>
+                                <option value="">Select a service</option>
+                                <option value="Project Services">Project Services</option>
+                                <option value="Graphics Design">Graphics Design</option>
+                                <option value="Typing Services">Typing Services</option>
+                                <option value="Printing Services">Printing Services</option>
+                                <option value="Internet Services">Internet Services</option>
+                                <option value="Seminar Support">Seminar Support</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="project-details">Project Details</label>
+                            <textarea id="project-details" class="form-control" placeholder="Please describe your project requirements..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="file-upload">Upload File (Optional)</label>
+                            <div class="file-upload">
+                                <button type="button" class="file-upload-btn">Choose File</button>
+                                <input type="file" id="file-upload">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">Submit Request</button>
+                    </form>
+                    <div class="confirmation-message" id="confirmation-message">
+                        Thank you! Your request has been submitted and sent to our WhatsApp.
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="contact-form">
-            <h3>Request a Service</h3>
-            <form id="serviceForm">
-              <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" class="form-control" required />
-              </div>
-
-              <div class="form-group">
-                <label for="service">Service Needed</label>
-                <select id="service" class="form-control" required>
-                  <option value="">Select a Service</option>
-                  <option value="graphics">Graphics Design</option>
-                  <option value="typing">Typing Services</option>
-                  <option value="printing">Printing Services</option>
-                  <option value="internet">Internet Services</option>
-                  <option value="seminar">Seminar Support</option>
-                  <option value="training">Training Services</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label for="message">Project Details</label>
-                <textarea id="message" class="form-control" required></textarea>
-              </div>
-
-              <div class="form-group">
-                <label for="file">Upload File (Optional)</label>
-                <input type="file" id="file" class="form-control" />
-              </div>
-
-              <button type="submit" class="submit-btn">Submit Request</button>
-            </form>
-          </div>
         </div>
-      </div>
     </section>
 
     <!-- Footer -->
     <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-column">
-            <h3>Divine Wisdom Computers</h3>
-            <p>
-              Empowering your digital life with expert services in graphics,
-              printing, typing, and more.
-            </p>
-            <div class="social-links">
-              <a
-                href="https://facebook.com/divinewisdomcomputers"
-                class="social-link"
-                target="_blank"
-              >
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a
-                href="https://twitter.com/divinewisdomcomp"
-                class="social-link"
-                target="_blank"
-              >
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a
-                href="https://instagram.com/divinewisdomcomputers"
-                class="social-link"
-                target="_blank"
-              >
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="https://wa.me/2349139285285"
-                class="social-link"
-                target="_blank"
-              >
-                <i class="fab fa-whatsapp"></i>
-              </a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>Divine Wisdom Computers</h3>
+                    <p>Empowering your digital life with expert services in graphics, printing, typing, and more.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/2349139285285" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#payment">Pay Online</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-hours">
+                    <h3>Business Hours</h3>
+                    <p>Monday–Friday: 8:00 AM – 8:00 PM</p>
+                    <p>Saturday: 9:00 AM – 6:00 PM</p>
+                    <p>Sunday: 10:00 AM – 4:00 PM</p>
+                    <p>Public Holidays: 10:00 AM – 3:00 PM</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Ngwa Road, Aba, Abia State</p>
+                    <p><i class="fas fa-phone"></i> 09139285285</p>
+                    <p><i class="fas fa-envelope"></i> delightrep@gmail.com</p>
+                </div>
             </div>
-          </div>
-
-          <div class="footer-column">
-            <h3>Quick Links</h3>
-            <ul class="footer-links">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About Us</a></li>
-              <li><a href="#services">Services</a></li>
-              <li><a href="#payment">Pay Online</a></li>
-              <li><a href="#testimonials">Testimonials</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3>Our Services</h3>
-            <ul class="footer-links">
-              <li><a href="#">Graphics Design</a></li>
-              <li><a href="#">Typing Services</a></li>
-              <li><a href="#">Printing Services</a></li>
-              <li><a href="#">Internet Services</a></li>
-              <li><a href="#">Seminar Support</a></li>
-              <li><a href="#">Training Services</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-column">
-            <h3>Business Hours</h3>
-            <ul class="footer-links">
-              <li>Monday - Friday: 8:00 AM - 8:00 PM</li>
-              <li>Saturday: 9:00 AM - 6:00 PM</li>
-              <li>Sunday: 10:00 AM - 4:00 PM</li>
-              <li>Public Holidays: 10:00 AM - 3:00 PM</li>
-            </ul>
-          </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Divine Wisdom Computers. All Rights Reserved.</p>
+            </div>
         </div>
-
-        <div class="copyright">
-          <p>
-            &copy; 2024 Divine Wisdom Computers. All Rights Reserved. | Ngwa
-            Road, Aba Abia State
-          </p>
-        </div>
-      </div>
     </footer>
 
     <script>
-      // Mobile Navigation Toggle
-      const mobileToggle = document.getElementById("mobileToggle");
-      const navMenu = document.getElementById("navMenu");
-
-      mobileToggle.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
-
-      // Smooth Scrolling
-      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-
-          navMenu.classList.remove("active");
-
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
-        });
-      });
-
-      // Active link on scroll
-      window.addEventListener("scroll", () => {
-        const sections = document.querySelectorAll("section");
-        const navLinks = document.querySelectorAll("nav ul li a");
-
-        let current = "";
-
-        sections.forEach((section) => {
-          const sectionTop = section.offsetTop;
-          if (pageYOffset >= sectionTop - 200) {
-            current = section.getAttribute("id");
-          }
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
         });
 
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href").substring(1) === current) {
-            link.classList.add("active");
-          }
+        // Copy Account Number
+        document.getElementById('copy-account').addEventListener('click', function() {
+            const accountNumber = document.getElementById('account-number').textContent;
+            navigator.clipboard.writeText(accountNumber).then(function() {
+                const originalText = this.textContent;
+                this.textContent = 'Copied!';
+                setTimeout(() => {
+                    this.textContent = originalText;
+                }, 2000);
+            }.bind(this));
         });
-      });
 
-      // Notification function
-      function showNotification(message, isError = false) {
-        const notification = document.getElementById("notification");
-        notification.textContent = message;
-
-        if (isError) {
-          notification.classList.add("error");
-        } else {
-          notification.classList.remove("error");
-        }
-
-        notification.classList.add("show");
-
-        setTimeout(() => {
-          notification.classList.remove("show");
-        }, 3000);
-      }
-
-      // Copy Account Number Functionality
-      const copyAccountBtn = document.getElementById("copyAccountBtn");
-      copyAccountBtn.addEventListener("click", () => {
-        const accountNumber = "9139285285";
-        navigator.clipboard.writeText(accountNumber).then(() => {
-          showNotification("Account number copied to clipboard!");
-        }).catch(err => {
-          showNotification("Failed to copy account number", true);
-          console.error('Failed to copy: ', err);
+        // Form Submission to WhatsApp
+        document.getElementById('service-request-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('full-name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const details = document.getElementById('project-details').value;
+            
+            // Create WhatsApp message
+            const message = `New Service Request:%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service Needed:* ${service}%0A*Project Details:* ${details}`;
+            
+            // Open WhatsApp with the message
+            window.open(`https://wa.me/2349139285285?text=${message}`, '_blank');
+            
+            // Show confirmation message
+            document.getElementById('confirmation-message').style.display = 'block';
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to confirmation message
+            document.getElementById('confirmation-message').scrollIntoView({ behavior: 'smooth' });
         });
-      });
 
-      // Form submission to WhatsApp and Email
-      const serviceForm = document.getElementById("serviceForm");
-      serviceForm.addEventListener("submit", function (e) {
-        e.preventDefault();
+        // File upload button text
+        document.getElementById('file-upload').addEventListener('change', function() {
+            const fileName = this.files[0] ? this.files[0].name : 'Choose File';
+            document.querySelector('.file-upload-btn').textContent = fileName;
+        });
 
-        // Form validation
-        const name = document.getElementById("name").value;
-        const email = document.getElementById("email").value;
-        const phone = document.getElementById("phone").value;
-        const service = document.getElementById("service").value;
-        const message = document.getElementById("message").value;
-
-        if (!name || !email || !phone || !service || !message) {
-          showNotification("Please fill all required fields", true);
-          return;
-        }
-
-        // Prepare message for WhatsApp
-        const whatsappMessage = `New Service Request:%0A%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0AMessage: ${message}`;
-        
-        // Open WhatsApp with pre-filled message
-        window.open(`https://wa.me/2349139285285?text=${whatsappMessage}`, '_blank');
-        
-        // Prepare email content
-        const emailSubject = `New Service Request from ${name}`;
-        const emailBody = `Name: ${name}%0D%0AEmail: ${email}%0D%0APhone: ${phone}%0D%0AService: ${service}%0D%0AMessage: ${message}`;
-        
-        // Open email client
-        window.location.href = `mailto:delightrep@gmail.com?subject=${emailSubject}&body=${emailBody}`;
-
-        showNotification("Thank you! Please complete sending via WhatsApp or email.");
-        serviceForm.reset();
-      });
-
-      // OPay App Link - Try to open app or redirect to store
-      const opayLink = document.getElementById("opayLink");
-      opayLink.addEventListener("click", function(e) {
-        // Try to open OPay app with deep link
-        window.location.href = "opay://payment/pay?account=9139285285";
-        
-        // If app is not installed, this will fail and user will stay on page
-        // The external link will then open in a new tab as fallback
-      });
+        // Testimonial slider (simple implementation)
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                dots.forEach(d => d.classList.remove('active'));
+                this.classList.add('active');
+                // In a real implementation, you would change the testimonial content here
+            });
+        });
     </script>
-  </body>
+</body>
 </html>
