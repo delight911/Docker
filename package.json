@@ -1,18 +1,97 @@
 {
-  "name": "html-css",
-  "version": "1.0.0",
-  "description": "A template for HTML and CSS",
-  "main": "index.html",
-  "scripts": {
-    "start": "serve"
-  },
-  "keywords": [
-    "html",
-    "css"
+  "services": [
+    {
+      "title": "Typing & Documents",
+      "icon": "fa-keyboard",
+      "items": [
+        "Project Typing",
+        "Assignment Typing",
+        "CV/Resume Creation",
+        "Application Letter Writing",
+        "Seminar Formatting",
+        "E-book/Novel Formatting",
+        "Data Entry Services"
+      ]
+    },
+    {
+      "title": "Printing & Photocopy",
+      "icon": "fa-print",
+      "items": [
+        "Black & White Printing",
+        "Color Printing",
+        "Photocopying",
+        "Document Scanning",
+        "Lamination",
+        "Spiral Binding",
+        "Large Format Printing"
+      ]
+    },
+    {
+      "title": "Graphic Design",
+      "icon": "fa-paint-brush",
+      "items": [
+        "Logo Design",
+        "Flyer & Poster Design",
+        "Business Card Design",
+        "Banner Design",
+        "Wedding Invitation",
+        "Birthday Invitation",
+        "Social Media Design"
+      ]
+    },
+    {
+      "title": "Photo & ID Services",
+      "icon": "fa-camera",
+      "items": [
+        "Passport Photograph Editing",
+        "Photo Editing & Retouching",
+        "ID Card Design",
+        "Certificate Design",
+        "WhatsApp TV Flyer"
+      ]
+    },
+    {
+      "title": "Training & Registrations",
+      "icon": "fa-chalkboard-teacher",
+      "items": [
+        "Computer Training/Courses",
+        "JAMB Registration Assistance",
+        "WAEC/NECO Registration",
+        "Online Form Filling",
+        "Online Registrations"
+      ]
+    },
+    {
+      "title": "Internet & Assistance",
+      "icon": "fa-globe",
+      "items": [
+        "Internet Browsing Assistance",
+        "Email Setup",
+        "Research Assistance",
+        "General Computer Assistance"
+      ]
+    }
   ],
-  "author": "Ives van Hoorne",
-  "license": "MIT",
-  "devDependencies": {
-    "serve": "11.2.0"
-  }
+  "testimonials": [
+    {
+      "quote": "Divine Wisdom Computers helped me complete my project on time with professional formatting. Exceptional!",
+      "name": "Grace Okoro",
+      "role": "Student"
+    },
+    {
+      "quote": "They designed a stunning logo and business cards that boosted my brand.",
+      "name": "Chukwuma Nwosu",
+      "role": "Entrepreneur"
+    },
+    {
+      "quote": "Reliable printing services at great prices. I'm a regular.",
+      "name": "Sarah Johnson",
+      "role": "Customer"
+    },
+    {
+      "quote": "My thesis binding was perfect. They saved me during finals.",
+      "name": "Emeka Okafor",
+      "role": "Graduate Student"
+    }
+  ]
 }
