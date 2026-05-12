@@ -3,241 +3,703 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Divine Wisdom Computers</title>
+    <title>Divine Wisdom Computers - Multi-Page Animated</title>
 
-    <!-- Fonts & Icons -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- AOS Animation Library -->
+    <!-- AOS (Animate On Scroll) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
 
-    <!-- Our custom style -->
-    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --bg-deep: #0a0f1e;
+            --bg-card: rgba(15, 23, 42, 0.7);
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --gold: #eab308;
+            --gold-light: #facc15;
+            --blue-accent: #3b82f6;
+            --blue-dark: #1e3a8a;
+            --gradient-hero: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --glass-bg: rgba(15, 23, 42, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --shadow-card: 0 25px 40px -15px rgba(0, 0, 0, 0.4);
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-secondary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 10px 0;
+            background: rgba(10, 15, 30, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: background 0.3s;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo i {
+            font-size: 2rem;
+            color: var(--gold);
+            filter: drop-shadow(0 0 8px rgba(234, 179, 8, 0.4));
+        }
+        .logo-text h1 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+        .logo-text p {
+            font-size: 0.7rem;
+            color: #64748b;
+            letter-spacing: 0.5px;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        nav a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            transition: color 0.2s;
+            position: relative;
+            padding: 5px 0;
+        }
+        nav a:hover,
+        nav a.active {
+            color: var(--gold-light);
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+
+        /* Discount Banner */
+        .discount-banner {
+            background: var(--gold);
+            color: #0f172a;
+            text-align: center;
+            padding: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* Page container */
+        .page {
+            display: none;
+            padding-top: 80px;
+            min-height: 100vh;
+            animation: fadeSlide 0.5s ease;
+        }
+        .page.active {
+            display: block;
+        }
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 85vh;
+            position: relative;
+            overflow: hidden;
+            background: var(--gradient-hero);
+        }
+        .hero-bg-effect {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 40%, rgba(59,130,246,0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 750px;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+        }
+        .typewriter {
+            font-size: 1.3rem;
+            color: #94a3b8;
+            min-height: 2em;
+            margin-bottom: 30px;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--gold);
+            color: #0f172a;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 12px 25px rgba(234, 179, 8, 0.3);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 35px rgba(234, 179, 8, 0.4);
+        }
+
+        /* Section titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+        }
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 3px;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+        .section-title p {
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 15px auto 0;
+        }
+
+        /* Cards style */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 30px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-card);
+            border-color: rgba(234,179,8,0.4);
+        }
+
+        /* About section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-top: 30px;
+        }
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+        .feature-item {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: rgba(255,255,255,0.03);
+            padding: 15px;
+            border-radius: 16px;
+        }
+        .feature-item i {
+            color: var(--gold);
+            font-size: 1.5rem;
+        }
+        .feature-item h4 {
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+        .feature-item p {
+            font-size: 0.8rem;
+            margin-bottom: 0;
+        }
+        .about-image {
+            background: rgba(255,255,255,0.03);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--glass-border);
+        }
+
+        /* Services grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Payment card */
+        .payment-card {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 1px solid var(--glass-border);
+        }
+
+        .payment-details {
+            background: rgba(0,0,0,0.25);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .payment-note {
+            background: rgba(234,179,8,0.1);
+            border-left: 4px solid var(--gold);
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #1e293b;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: white;
+            font-family: inherit;
+            transition: border 0.2s;
+            margin-bottom: 15px;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(234,179,8,0.2);
+        }
+
+        footer {
+            background: #030712;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+        .footer-grid h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        .footer-grid a, .footer-grid p {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid, .contact-grid, .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(10,15,30,0.95);
+                padding: 20px;
+                backdrop-filter: blur(20px);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Discount Banner -->
-    <div class="discount-banner">
-        🎉 10% DISCOUNT on any service up to ₦10,000 – Valid until May 2026!
-    </div>
+<div class="discount-banner">
+    🎉 10% DISCOUNT on any service up to ₦10,000 – Valid until May 2026!
+</div>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-laptop-code"></i>
-                <div class="logo-text">
-                    <h1>Divine Wisdom Computers</h1>
-                    <p>Abia State College of Health Sciences and Management Technology, Aba</p>
-                </div>
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <i class="fas fa-laptop-code"></i>
+            <div class="logo-text">
+                <h1>Divine Wisdom Computers</h1>
+                <p>Abia State College of Health Sciences and Management Technology, Aba</p>
             </div>
-            <button class="mobile-menu-btn" id="mobileBtn"><i class="fas fa-bars"></i></button>
-            <nav>
-                <ul id="navMenu">
-                    <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
-                    <li><a href="#" class="nav-link" data-page="about">About</a></li>
-                    <li><a href="#" class="nav-link" data-page="services">Services</a></li>
-                    <li><a href="#" class="nav-link" data-page="payment">Payment</a></li>
-                    <li><a href="#" class="nav-link" data-page="testimonials">Testimonials</a></li>
-                    <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
-                </ul>
-            </nav>
         </div>
-    </header>
-
-    <!-- Multi-page container -->
-    <!-- Each page will be shown/hidden dynamically -->
-
-    <div id="homePage" class="page active">
-        <section class="hero">
-            <div class="hero-bg-effect"></div>
-            <div class="hero-content">
-                <h1>Best in What We Do</h1>
-                <p class="typewriter" id="typewriter"></p>
-                <a href="#" class="btn" data-page="contact">Request a Service</a>
-            </div>
-        </section>
+        <button class="mobile-menu-btn" id="mobileBtn"><i class="fas fa-bars"></i></button>
+        <nav>
+            <ul id="navMenu">
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="about">About</a></li>
+                <li><a href="#" class="nav-link" data-page="services">Services</a></li>
+                <li><a href="#" class="nav-link" data-page="payment">Payment</a></li>
+                <li><a href="#" class="nav-link" data-page="testimonials">Testimonials</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+        </nav>
     </div>
+</header>
 
-    <div id="aboutPage" class="page">
-        <div class="container" style="padding:60px 0;">
-            <div class="section-title"><h2>About Us</h2><p>Learn more about Divine Wisdom Computers</p></div>
-            <div class="about-grid">
-                <div class="about-text">
-                    <h3>Your Trusted Digital Partner</h3>
-                    <p>Divine Wisdom Computers is a trusted partner for students, businesses, and individuals seeking professional digital services. With many years of experience, we focus on delivering high-quality results that exceed expectations.</p>
-                    <div class="feature-list">
-                        <div class="feature-item"><i class="fas fa-award"></i><div><h4>Professional Quality</h4><p>Highest standards</p></div></div>
-                        <div class="feature-item"><i class="fas fa-clock"></i><div><h4>Years of Experience</h4><p>Trusted by many</p></div></div>
-                        <div class="feature-item"><i class="fas fa-users"></i><div><h4>Customer Focused</h4><p>Your satisfaction first</p></div></div>
-                        <div class="feature-item"><i class="fas fa-lightbulb"></i><div><h4>Innovative</h4><p>Creative solutions</p></div></div>
-                    </div>
+<!-- PAGES -->
+<div id="homePage" class="page active">
+    <section class="hero">
+        <div class="hero-bg-effect"></div>
+        <div class="hero-content">
+            <h1>Best in What We Do</h1>
+            <p class="typewriter" id="typewriter"></p>
+            <a href="#" class="btn" data-page="contact">Request a Service</a>
+        </div>
+    </section>
+</div>
+
+<div id="aboutPage" class="page">
+    <div class="container" style="padding:60px 0;">
+        <div class="section-title"><h2>About Us</h2><p>Learn more about Divine Wisdom Computers</p></div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Your Trusted Digital Partner</h3>
+                <p>Divine Wisdom Computers is a trusted partner for students, businesses, and individuals seeking professional digital services. With many years of experience, we focus on delivering high-quality results that exceed expectations.</p>
+                <div class="feature-list">
+                    <div class="feature-item"><i class="fas fa-award"></i><div><h4>Professional Quality</h4><p>Highest standards</p></div></div>
+                    <div class="feature-item"><i class="fas fa-clock"></i><div><h4>Years of Experience</h4><p>Trusted by many</p></div></div>
+                    <div class="feature-item"><i class="fas fa-users"></i><div><h4>Customer Focused</h4><p>Your satisfaction first</p></div></div>
+                    <div class="feature-item"><i class="fas fa-lightbulb"></i><div><h4>Innovative</h4><p>Creative solutions</p></div></div>
                 </div>
-                <div class="about-image">
-                    <i class="fas fa-laptop-code fa-3x" style="color:var(--gold);"></i>
-                    <h3 style="color:white; margin-top:15px;">Digital Excellence Since 2025</h3>
-                </div>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-laptop-code fa-3x" style="color:var(--gold);"></i>
+                <h3 style="color:white; margin-top:15px;">Digital Excellence Since 2025</h3>
             </div>
         </div>
     </div>
+</div>
 
-    <div id="servicesPage" class="page">
-        <div class="container" style="padding:60px 0;">
-            <div class="section-title"><h2>Our Services</h2><p>Comprehensive digital solutions tailored to your needs</p></div>
-            <div class="services-grid" id="servicesContainer">
-                <!-- Dynamically filled from data.json -->
-            </div>
-            <p style="text-align:center; margin-top:30px; color:#94a3b8;">
-                <i class="fas fa-plus-circle"></i> and many more...
-            </p>
+<div id="servicesPage" class="page">
+    <div class="container" style="padding:60px 0;">
+        <div class="section-title"><h2>Our Services</h2><p>Comprehensive digital solutions tailored to your needs</p></div>
+        <div class="services-grid">
+            <div class="card"><i class="fas fa-keyboard" style="color:var(--gold); font-size:2rem; margin-bottom:15px;"></i><h3 style="color:white;">Typing & Documents</h3><ul style="list-style:none; margin-top:10px;"><li>✓ Project Typing</li><li>✓ Assignment Typing</li><li>✓ CV/Resume Creation</li><li>✓ Application Letter Writing</li><li>✓ Seminar Formatting</li><li>✓ E-book/Novel Formatting</li><li>✓ Data Entry Services</li></ul></div>
+            <div class="card"><i class="fas fa-print" style="color:var(--gold); font-size:2rem; margin-bottom:15px;"></i><h3 style="color:white;">Printing & Photocopy</h3><ul style="list-style:none; margin-top:10px;"><li>✓ Black & White Printing</li><li>✓ Color Printing</li><li>✓ Photocopying</li><li>✓ Document Scanning</li><li>✓ Lamination</li><li>✓ Spiral Binding</li><li>✓ Large Format Printing</li></ul></div>
+            <div class="card"><i class="fas fa-paint-brush" style="color:var(--gold); font-size:2rem; margin-bottom:15px;"></i><h3 style="color:white;">Graphic Design</h3><ul style="list-style:none; margin-top:10px;"><li>✓ Logo Design</li><li>✓ Flyer & Poster Design</li><li>✓ Business Card Design</li><li>✓ Banner Design</li><li>✓ Wedding Invitation</li><li>✓ Birthday Invitation</li><li>✓ Social Media Design</li></ul></div>
+            <div class="card"><i class="fas fa-camera" style="color:var(--gold); font-size:2rem; margin-bottom:15px;"></i><h3 style="color:white;">Photo & ID Services</h3><ul style="list-style:none; margin-top:10px;"><li>✓ Passport Photograph Editing</li><li>✓ Photo Editing & Retouching</li><li>✓ ID Card Design</li><li>✓ Certificate Design</li><li>✓ WhatsApp TV Flyer</li></ul></div>
+            <div class="card"><i class="fas fa-chalkboard-teacher" style="color:var(--gold); font-size:2rem; margin-bottom:15px;"></i><h3 style="color:white;">Training & Registrations</h3><ul style="list-style:none; margin-top:10px;"><li>✓ Computer Training/Courses</li><li>✓ JAMB Registration Assistance</li><li>✓ WAEC/NECO Registration</li><li>✓ Online Form Filling</li><li>✓ Online Registrations</li></ul></div>
+            <div class="card"><i class="fas fa-globe" style="color:var(--gold); font-size:2rem; margin-bottom:15px;"></i><h3 style="color:white;">Internet & Assistance</h3><ul style="list-style:none; margin-top:10px;"><li>✓ Internet Browsing Assistance</li><li>✓ Email Setup</li><li>✓ Research Assistance</li><li>✓ General Computer Assistance</li></ul></div>
         </div>
+        <p style="text-align:center; margin-top:30px; color:#94a3b8;"><i class="fas fa-plus-circle"></i> and many more...</p>
     </div>
+</div>
 
-    <div id="paymentPage" class="page">
-        <div class="container" style="padding:60px 0;">
-            <div class="section-title"><h2>Pay Online</h2><p>Convenient and secure payment options</p></div>
-            <div class="payment-card">
-                <h3 style="color:white;">Payment Details</h3>
-                <div class="payment-details">
-                    <p><strong>Bank:</strong> OPay Digital Services Limited (OPay)</p>
-                    <p><strong>Account Number:</strong> <span id="account-number" style="color:var(--gold-light);">610 596 8376</span></p>
-                    <p><strong>Account Name:</strong> CHIOMA THERESA IKEH</p>
-                </div>
-                <div style="display:flex; gap:10px; flex-wrap:wrap;">
-                    <button class="btn" id="copy-account">Copy Account Number</button>
-                    <a href="#" class="btn" style="background:var(--blue-accent);">Pay with OPay</a>
-                </div>
-                <div class="payment-note">
-                    <strong style="color:var(--gold-light);">Important:</strong> After payment, send proof to our WhatsApp or Telegram for confirmation.
-                </div>
+<div id="paymentPage" class="page">
+    <div class="container" style="padding:60px 0;">
+        <div class="section-title"><h2>Pay Online</h2><p>Convenient and secure payment options</p></div>
+        <div class="payment-card">
+            <h3 style="color:white;">Payment Details</h3>
+            <div class="payment-details">
+                <p style="color:#cbd5e1;"><strong>Bank:</strong> OPay Digital Services Limited (OPay)</p>
+                <p style="color:#cbd5e1;"><strong>Account Number:</strong> <span id="account-number" style="color:var(--gold-light);">610 596 8376</span></p>
+                <p style="color:#cbd5e1;"><strong>Account Name:</strong> CHIOMA THERESA IKEH</p>
             </div>
-        </div>
-    </div>
-
-    <div id="testimonialsPage" class="page">
-        <div class="container" style="padding:60px 0;">
-            <div class="section-title"><h2>Testimonials</h2><p>What our clients say</p></div>
-            <div class="testimonial-grid" id="testimonialsContainer">
-                <!-- Dynamically filled from data.json -->
+            <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                <button class="btn" id="copy-account">Copy Account Number</button>
+                <a href="#" class="btn" style="background:var(--blue-accent);">Pay with OPay</a>
+            </div>
+            <div class="payment-note">
+                <strong style="color:var(--gold-light);">Important:</strong> After payment, send proof to our WhatsApp or Telegram for confirmation.
             </div>
         </div>
     </div>
+</div>
 
-    <div id="contactPage" class="page">
-        <div class="container" style="padding:60px 0;">
-            <div class="section-title"><h2>Get in Touch</h2><p>Reach out for inquiries or service requests</p></div>
-            <div class="contact-grid">
-                <div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div><h4 style="color:white;">WhatsApp</h4><a href="https://wa.me/2349139285285" style="color:var(--gold-light);">09139285285</a></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4 style="color:white;">Phone</h4><a href="tel:08032632324" style="color:var(--gold-light);">08032632324</a></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fab fa-telegram-plane"></i></div><div><h4 style="color:white;">Telegram</h4><a href="https://t.me/Divinewisdomcomputers" target="_blank" style="color:var(--gold-light);">t.me/Divinewisdomcomputers</a></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4 style="color:white;">Email</h4><a href="mailto:dwisdomcomputers@gmail.com" style="color:var(--gold-light);">dwisdomcomputers@gmail.com</a></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4 style="color:white;">Location</h4><p>Ngwa Road, Aba, Abia State</p></div></div>
-                </div>
-                <form id="service-request-form">
-                    <input type="text" class="form-control" placeholder="Full Name" id="full-name" required>
-                    <input type="email" class="form-control" placeholder="Email" id="email" required>
-                    <input type="tel" class="form-control" placeholder="Phone" id="phone" required>
-                    <select class="form-control" id="service" required>
-                        <option value="">Select Service</option>
-                        <option>Typing Services</option><option>Printing</option><option>Graphic Design</option><option>Photo Editing</option><option>Registration</option><option>Other</option>
-                    </select>
-                    <textarea class="form-control" rows="4" placeholder="Project Details" id="project-details" required></textarea>
-                    <button type="submit" class="btn" style="width:100%;">Submit Request</button>
-                    <div id="confirmation-msg" style="display:none; background:#065f46; color:white; padding:15px; border-radius:12px; margin-top:15px;">✅ Request sent to WhatsApp!</div>
-                </form>
-            </div>
+<div id="testimonialsPage" class="page">
+    <div class="container" style="padding:60px 0;">
+        <div class="section-title"><h2>Testimonials</h2><p>What our clients say</p></div>
+        <div class="testimonial-grid">
+            <div class="card"><p style="font-style:italic;">"Divine Wisdom Computers helped me complete my project on time with professional formatting. Exceptional!"</p><strong style="color:white; display:block; margin-top:15px;">Grace Okoro</strong><small>Student</small></div>
+            <div class="card"><p style="font-style:italic;">"They designed a stunning logo and business cards that boosted my brand."</p><strong style="color:white; display:block; margin-top:15px;">Chukwuma Nwosu</strong><small>Entrepreneur</small></div>
+            <div class="card"><p style="font-style:italic;">"Reliable printing services at great prices. I'm a regular."</p><strong style="color:white; display:block; margin-top:15px;">Sarah Johnson</strong><small>Customer</small></div>
+            <div class="card"><p style="font-style:italic;">"My thesis binding was perfect. They saved me during finals."</p><strong style="color:white; display:block; margin-top:15px;">Emeka Okafor</strong><small>Graduate Student</small></div>
         </div>
     </div>
+</div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <h3>Divine Wisdom Computers</h3>
-                    <p>Empowering your digital life with expert services.</p>
-                    <p style="margin-top:10px;">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#" style="margin-left:12px;"><i class="fab fa-instagram"></i></a>
-                        <a href="https://t.me/Divinewisdomcomputers" style="margin-left:12px;"><i class="fab fa-telegram"></i></a>
-                    </p>
-                </div>
-                <div>
-                    <h3>Links</h3>
-                    <p><a href="#" class="nav-link" data-page="home">Home</a></p>
-                    <p><a href="#" class="nav-link" data-page="services">Services</a></p>
-                    <p><a href="#" class="nav-link" data-page="payment">Payment</a></p>
-                </div>
-                <div>
-                    <h3>Hours</h3>
-                    <p>Mon–Sat: 7:30 AM – 6:30 PM</p>
-                    <p>Sunday: Closed</p>
-                </div>
-                <div>
-                    <h3>Contact</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Ngwa Road, Aba</p>
-                    <p><i class="fas fa-phone"></i> 09139285285</p>
-                    <p><i class="fas fa-envelope"></i> dwisdomcomputers@gmail.com</p>
-                </div>
+<div id="contactPage" class="page">
+    <div class="container" style="padding:60px 0;">
+        <div class="section-title"><h2>Get in Touch</h2><p>Reach out for inquiries or service requests</p></div>
+        <div class="contact-grid">
+            <div>
+                <div class="contact-item"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div><h4 style="color:white;">WhatsApp</h4><a href="https://wa.me/2349139285285" style="color:var(--gold-light);">09139285285</a></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone"></i></div><div><h4 style="color:white;">Phone</h4><a href="tel:08032632324" style="color:var(--gold-light);">08032632324</a></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fab fa-telegram-plane"></i></div><div><h4 style="color:white;">Telegram</h4><a href="https://t.me/Divinewisdomcomputers" target="_blank" style="color:var(--gold-light);">t.me/Divinewisdomcomputers</a></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div><h4 style="color:white;">Email</h4><a href="mailto:dwisdomcomputers@gmail.com" style="color:var(--gold-light);">dwisdomcomputers@gmail.com</a></div></div>
+                <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div><h4 style="color:white;">Location</h4><p>Ngwa Road, Aba, Abia State</p></div></div>
             </div>
-            <div class="footer-bottom">
-                &copy; 2026 Divine Wisdom Computers. All Rights Reserved.
+            <form id="service-request-form">
+                <input type="text" class="form-control" placeholder="Full Name" id="full-name" required>
+                <input type="email" class="form-control" placeholder="Email" id="email" required>
+                <input type="tel" class="form-control" placeholder="Phone" id="phone" required>
+                <select class="form-control" id="service" required>
+                    <option value="">Select Service</option>
+                    <option>Typing Services</option><option>Printing</option><option>Graphic Design</option><option>Photo Editing</option><option>Registration</option><option>Other</option>
+                </select>
+                <textarea class="form-control" rows="4" placeholder="Project Details" id="project-details" required></textarea>
+                <button type="submit" class="btn" style="width:100%;">Submit Request</button>
+                <div id="confirmation-msg" style="display:none; background:#065f46; color:white; padding:15px; border-radius:12px; margin-top:15px;">✅ Request sent to WhatsApp!</div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <h3>Divine Wisdom Computers</h3>
+                <p>Empowering your digital life with expert services.</p>
+                <p style="margin-top:10px;">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="margin-left:12px;"><i class="fab fa-instagram"></i></a>
+                    <a href="https://t.me/Divinewisdomcomputers" style="margin-left:12px;"><i class="fab fa-telegram"></i></a>
+                </p>
+            </div>
+            <div>
+                <h3>Links</h3>
+                <p><a href="#" class="nav-link" data-page="home">Home</a></p>
+                <p><a href="#" class="nav-link" data-page="services">Services</a></p>
+                <p><a href="#" class="nav-link" data-page="payment">Payment</a></p>
+            </div>
+            <div>
+                <h3>Hours</h3>
+                <p>Mon–Sat: 7:30 AM – 6:30 PM</p>
+                <p>Sunday: Closed</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Ngwa Road, Aba</p>
+                <p><i class="fas fa-phone"></i> 09139285285</p>
+                <p><i class="fas fa-envelope"></i> dwisdomcomputers@gmail.com</p>
             </div>
         </div>
-    </footer>
+        <div class="footer-bottom">
+            &copy; 2026 Divine Wisdom Computers. All Rights Reserved.
+        </div>
+    </div>
+</footer>
 
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-    <script>
-        // Our main JavaScript (will load JSON and run the app)
-        window.addEventListener('DOMContentLoaded', () => {
-            // Fetch the data.json and populate services & testimonials
-            fetch('data.json')
-                .then(response => response.json())
-                .then(data => {
-                    // Populate services
-                    const servicesContainer = document.getElementById('servicesContainer');
-                    data.services.forEach(category => {
-                        const card = document.createElement('div');
-                        card.className = 'card';
-                        card.setAttribute('data-aos', 'fade-up');
-                        card.innerHTML = `
-                            <i class="fas ${category.icon}" style="color:var(--gold); font-size:2rem; margin-bottom:15px;"></i>
-                            <h3 style="color:white;">${category.title}</h3>
-                            <ul style="list-style:none; margin-top:10px;">
-                                ${category.items.map(item => `<li>✓ ${item}</li>`).join('')}
-                            </ul>
-                        `;
-                        servicesContainer.appendChild(card);
-                    });
+<!-- AOS and Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+    AOS.init({ once: false, offset: 100, duration: 800 });
 
-                    // Populate testimonials
-                    const testimonialsContainer = document.getElementById('testimonialsContainer');
-                    data.testimonials.forEach(t => {
-                        const card = document.createElement('div');
-                        card.className = 'card';
-                        card.setAttribute('data-aos', 'fade-up');
-                        card.innerHTML = `
-                            <p style="font-style:italic;">"${t.quote}"</p>
-                            <strong style="color:white; display:block; margin-top:15px;">${t.name}</strong>
-                            <small>${t.role}</small>
-                        `;
-                        testimonialsContainer.appendChild(card);
-                    });
+    // Multi-page navigation
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-                    // Refresh AOS after dynamic content
-                    AOS.refresh();
-                })
-                .catch(err => console.error('Failed to load data.json:', err));
+    function showPage(pageId) {
+        pages.forEach(p => p.classList.remove('active'));
+        document.getElementById(pageId + 'Page').classList.add('active');
+        navLinks.forEach(link => link.classList.remove('active'));
+        document.querySelector(`.nav-link[data-page="${pageId}"]`).classList.add('active');
+        AOS.refresh();
+    }
 
-            // Initialize AOS anyway
-            AOS.init({ once: false, offset: 100, duration: 800 });
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const page = this.getAttribute('data-page');
+            showPage(page);
+            document.getElementById('navMenu').classList.remove('show');
         });
-    </script>
-    <script src="script.js"></script> <!-- Contains page navigation, typewriter, etc. -->
+    });
+
+    // Also allow buttons with data-page attribute
+    document.querySelectorAll('[data-page]').forEach(el => {
+        el.addEventListener('click', function(e) {
+            if (this.tagName === 'A' && this.classList.contains('nav-link')) return;
+            e.preventDefault();
+            showPage(this.getAttribute('data-page'));
+        });
+    });
+
+    document.getElementById('mobileBtn').addEventListener('click', () => {
+        document.getElementById('navMenu').classList.toggle('show');
+    });
+
+    // Typewriter
+    const text = "Empowering your digital life with expert services in graphics, printing, typing, and more.";
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            document.getElementById('typewriter').textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 30);
+        }
+    }
+    window.addEventListener('load', typeWriter);
+
+    // Copy account number
+    document.getElementById('copy-account').addEventListener('click', function() {
+        const acc = document.getElementById('account-number').textContent.replace(/\s/g, '');
+        navigator.clipboard.writeText(acc).then(() => {
+            this.textContent = 'Copied!';
+            setTimeout(() => { this.textContent = 'Copy Account Number'; }, 2000);
+        });
+    });
+
+    // Form submission
+    document.getElementById('service-request-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('full-name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const service = document.getElementById('service').value;
+        const details = document.getElementById('project-details').value;
+        const message = `New Service Request:%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Phone:* ${phone}%0A*Service:* ${service}%0A*Details:* ${details}`;
+        window.open(`https://wa.me/2349139285285?text=${message}`, '_blank');
+        document.getElementById('confirmation-msg').style.display = 'block';
+        this.reset();
+    });
+</script>
+
 </body>
-</html>
+</html>   
